@@ -1,0 +1,14 @@
+.DS_Store
+*.log
+
+# Local source artifacts; do not deploy or commit third-party binaries/assets
+*.jar
+*.zip
+
+# Local/generated texture assets. Keep them locally for development only.
+textures/
+resourcepack/
+generated-icons/
+
+__pycache__/
+*.pyc
