@@ -30,7 +30,7 @@ def main():
         if not icon_path or not should_render_as_block(model_json):
             continue
 
-        source_path = ROOT / icon_path.removeprefix("./")
+        source_path = ROOT / strip_prefix(icon_path, "./")
         if not source_path.exists():
             continue
 
@@ -215,6 +215,10 @@ def load_model_json(item):
 
 def safe_filename(value):
     return re.sub(r"[^A-Za-z0-9_.-]+", "_", str(value)).strip("_") or "block"
+
+
+def strip_prefix(value, prefix):
+    return value[len(prefix):] if value.startswith(prefix) else value
 
 
 if __name__ == "__main__":

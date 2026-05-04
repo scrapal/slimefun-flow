@@ -5,10 +5,8 @@
 *.jar
 *.zip
 
-# Local/generated texture assets. Keep them locally for development only.
-textures/
-resourcepack/
-generated-icons/
+# Generated cache; rendered icons under generated-icons/heads are deployed.
+generated-icons/head-textures/
 
 __pycache__/
 *.pyc

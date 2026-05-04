@@ -2,7 +2,7 @@
 
 一个本地网页小工具：搜索粘液科技物品后，自动生成合成材料流程图，并递归显示可合成材料的衍生配方。
 
-> 公开部署说明：本仓库的部署安全版本不包含 Minecraft 原版材质、第三方资源包图片、插件 Jar 或资源包 Zip 文件。部署前请阅读 `DEPLOYMENT.md`。
+> 公开部署说明：本仓库不会提交插件 Jar 或资源包 Zip 文件；当前版本会发布已导入的网页图标资源。部署/商业化前请确认相关材质的公开分发与商业使用权限。
 
 ## 使用
 
@@ -77,5 +77,5 @@ python3 scripts/prepare-deploy-data.py
 本地贴图脚本会读取 `textures/`，为原版材料和没有资源包材质的物品补齐 `localIcon`。
 方块图标脚本会读取资源包模型 UV，把方块展开图拼成立方体预览，写入 `blockIcon`；普通 `item/generated` 图标不会强行拼方块。
 头颅图标脚本会读取 `headTexture`，把 Minecraft 头颅皮肤拼成立方体预览，写入 `headBlockIcon`。
-公开部署前运行 `prepare-deploy-data.py`，它会从 `data/slimefun-items.json` 中移除本地材质、资源包图片和头颅贴图引用，让站点使用自有占位图。
+如果需要生成不含第三方/原版材质的保守发布包，可以运行 `prepare-deploy-data.py`，它会从 `data/slimefun-items.json` 中移除本地材质、资源包图片和头颅贴图引用，让站点使用自有占位图。
 源码里的复杂机器、服务器魔改配方和未收录附属插件仍可能需要手动补充。
