@@ -358,6 +358,7 @@ function itemInfoRows(item) {
     ["图标材质", item.icon],
     ["资源包模型", item.resourcePackModel],
     ["CustomModelData", item.resourcePackCustomModelData],
+    ["配方来源", recipeAliasLabel(item)],
     ["研究 ID", item.research],
     ["研究消耗", item.researchCost],
     ["排序 ID", item.sortid],
@@ -389,6 +390,11 @@ function itemInfoRows(item) {
   }
 
   return rows;
+}
+
+function recipeAliasLabel(item) {
+  if (!item.recipeAliasOf) return null;
+  return `${item.recipeAliasAddon ?? "未知附属"} · ${item.recipeAliasOf}`;
 }
 
 function itemInfoTags(item) {

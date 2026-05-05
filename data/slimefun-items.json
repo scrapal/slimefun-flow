@@ -23,7 +23,9 @@
     "headTextureSource": "Slimefun4-RC.jar + Slimefun official source parser",
     "haimanTechSource": "HaimanTech2-Release-1.9.10/RSC_HaimanTech2",
     "haimanTechImportedItems": 821,
-    "haimanTechVersion": "Release-1.9.10"
+    "haimanTechVersion": "Release-1.9.10",
+    "recipeAliasCopied": 58,
+    "recipeAliasNote": "为无命名空间的同名附属物品补充有命名空间物品的配方，避免材料树把它们误判为基础材料。"
   },
   "items": [
     {
@@ -6280,10 +6282,68 @@
       "englishName": "SMG_GENERATOR_COBBLESTONE",
       "addonName": "FN科技",
       "category": "FN科技",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "smg_generator_cobblestone",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "SMOOTH_STONE",
+          "qty": 6
+        },
+        {
+          "id": "LAVA_BUCKET",
+          "qty": 1
+        },
+        {
+          "id": "IRON_PICKAXE",
+          "qty": 1
+        },
+        {
+          "id": "WATER_BUCKET",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "SMOOTH_STONE",
+          "qty": 1
+        },
+        {
+          "id": "SMOOTH_STONE",
+          "qty": 1
+        },
+        {
+          "id": "SMOOTH_STONE",
+          "qty": 1
+        },
+        {
+          "id": "LAVA_BUCKET",
+          "qty": 1
+        },
+        {
+          "id": "IRON_PICKAXE",
+          "qty": 1
+        },
+        {
+          "id": "WATER_BUCKET",
+          "qty": 1
+        },
+        {
+          "id": "SMOOTH_STONE",
+          "qty": 1
+        },
+        {
+          "id": "SMOOTH_STONE",
+          "qty": 1
+        },
+        {
+          "id": "SMOOTH_STONE",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "SMG:SMG_GENERATOR_COBBLESTONE",
+      "recipeAliasAddon": "简易材料生成器"
     },
     {
       "id": "FNFAL:FN_GEM_INFERNO",
@@ -8625,10 +8685,64 @@
       "englishName": "SMG_GENERATOR_GRAVEL",
       "addonName": "FN科技",
       "category": "FN科技",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "smg_generator_gravel",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "STONE_BRICKS",
+          "qty": 4
+        },
+        {
+          "id": "BILLON_INGOT",
+          "qty": 4
+        },
+        {
+          "id": "SMG:SMG_GENERATOR_GRAVEL_BROKEN",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "STONE_BRICKS",
+          "qty": 1
+        },
+        {
+          "id": "BILLON_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "STONE_BRICKS",
+          "qty": 1
+        },
+        {
+          "id": "BILLON_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SMG:SMG_GENERATOR_GRAVEL_BROKEN",
+          "qty": 1
+        },
+        {
+          "id": "BILLON_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "STONE_BRICKS",
+          "qty": 1
+        },
+        {
+          "id": "BILLON_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "STONE_BRICKS",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "SMG:SMG_GENERATOR_GRAVEL",
+      "recipeAliasAddon": "简易材料生成器"
     },
     {
       "id": "FNFAL:FN_STAFF_HEALING",
@@ -8909,10 +9023,80 @@
       "englishName": "SMG_GENERATOR_SOUL_SAND",
       "addonName": "FN科技",
       "category": "FN科技",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "smg_generator_soul_sand",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "STEEL_INGOT",
+          "qty": 2
+        },
+        {
+          "id": "SPIDER_EYE",
+          "qty": 1
+        },
+        {
+          "id": "ROTTEN_FLESH",
+          "qty": 1
+        },
+        {
+          "id": "WATER_BUCKET",
+          "qty": 1
+        },
+        {
+          "id": "BONE",
+          "qty": 1
+        },
+        {
+          "id": "SMG:SMG_GENERATOR_SAND",
+          "qty": 2
+        },
+        {
+          "id": "COMPOSTER",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "STEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SPIDER_EYE",
+          "qty": 1
+        },
+        {
+          "id": "STEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "ROTTEN_FLESH",
+          "qty": 1
+        },
+        {
+          "id": "WATER_BUCKET",
+          "qty": 1
+        },
+        {
+          "id": "BONE",
+          "qty": 1
+        },
+        {
+          "id": "SMG:SMG_GENERATOR_SAND",
+          "qty": 1
+        },
+        {
+          "id": "COMPOSTER",
+          "qty": 1
+        },
+        {
+          "id": "SMG:SMG_GENERATOR_SAND",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "SMG:SMG_GENERATOR_SOUL_SAND",
+      "recipeAliasAddon": "简易材料生成器"
     },
     {
       "id": "FNFAL:FN_GEM_SMOKE_CRIMINAL",
@@ -11730,10 +11914,68 @@
       "englishName": "SMG_GENERATOR_NETHERRACK",
       "addonName": "FN科技",
       "category": "FN科技",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "smg_generator_netherrack",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "SOLDER_INGOT",
+          "qty": 3
+        },
+        {
+          "id": "SMG:SMG_GENERATOR_STONE",
+          "qty": 4
+        },
+        {
+          "id": "LAVA_BUCKET",
+          "qty": 1
+        },
+        {
+          "id": "COMPOSTER",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "SOLDER_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SOLDER_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SOLDER_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SMG:SMG_GENERATOR_STONE",
+          "qty": 1
+        },
+        {
+          "id": "LAVA_BUCKET",
+          "qty": 1
+        },
+        {
+          "id": "SMG:SMG_GENERATOR_STONE",
+          "qty": 1
+        },
+        {
+          "id": "SMG:SMG_GENERATOR_STONE",
+          "qty": 1
+        },
+        {
+          "id": "COMPOSTER",
+          "qty": 1
+        },
+        {
+          "id": "SMG:SMG_GENERATOR_STONE",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "SMG:SMG_GENERATOR_NETHERRACK",
+      "recipeAliasAddon": "简易材料生成器"
     },
     {
       "id": "FNFAL:FN_MACHINERY_DIAMOND_PLATING",
@@ -12019,10 +12261,50 @@
       "englishName": "IRIDIUM",
       "addonName": "FN科技",
       "category": "FN科技",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "iridium",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "LITEXPANSION:UU_MATTER",
+          "qty": 7
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "LITEXPANSION:UU_MATTER",
+          "qty": 1
+        },
+        {
+          "id": "LITEXPANSION:UU_MATTER",
+          "qty": 1
+        },
+        {
+          "id": "LITEXPANSION:UU_MATTER",
+          "qty": 1
+        },
+        null,
+        {
+          "id": "LITEXPANSION:UU_MATTER",
+          "qty": 1
+        },
+        null,
+        {
+          "id": "LITEXPANSION:UU_MATTER",
+          "qty": 1
+        },
+        {
+          "id": "LITEXPANSION:UU_MATTER",
+          "qty": 1
+        },
+        {
+          "id": "LITEXPANSION:UU_MATTER",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "LITEXPANSION:IRIDIUM",
+      "recipeAliasAddon": "工业拓展附属"
     },
     {
       "id": "FNFAL:FN_MACHINERY_THREAD_PART",
@@ -50107,10 +50389,72 @@
       "englishName": "EMPTY_DATA_CARD",
       "addonName": "动力科技",
       "category": "动力科技",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "empty_data_card",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 4
+        },
+        {
+          "id": "INFINITYEXPANSION:MACHINE_CIRCUIT",
+          "qty": 2
+        },
+        {
+          "id": "SYNTHETIC_SAPPHIRE",
+          "qty": 1
+        },
+        {
+          "id": "SYNTHETIC_DIAMOND",
+          "qty": 1
+        },
+        {
+          "id": "SYNTHETIC_EMERALD",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MACHINE_CIRCUIT",
+          "qty": 1
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SYNTHETIC_SAPPHIRE",
+          "qty": 1
+        },
+        {
+          "id": "SYNTHETIC_DIAMOND",
+          "qty": 1
+        },
+        {
+          "id": "SYNTHETIC_EMERALD",
+          "qty": 1
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MACHINE_CIRCUIT",
+          "qty": 1
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:EMPTY_DATA_CARD",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "DYNATECH:CHIPPING_GENERATOR",
@@ -52856,10 +53200,53 @@
       "englishName": "STAINLESS_STEEL",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "冶炼炉",
       "icon": "stainless_steel",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "STEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "IRON_DUST",
+          "qty": 1
+        },
+        {
+          "id": "ZINC_DUST",
+          "qty": 1
+        },
+        {
+          "id": "CARBON",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "STEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "IRON_DUST",
+          "qty": 1
+        },
+        {
+          "id": "ZINC_DUST",
+          "qty": 1
+        },
+        {
+          "id": "CARBON",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "DYNATECH:STAINLESS_STEEL",
+      "recipeAliasAddon": "动力科技"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_TESSERACTING_MATERIAL",
@@ -53307,10 +53694,68 @@
       "englishName": "TESSERACTING_OBJ",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "古代祭坛",
       "icon": "tesseracting_obj",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "DYNATECH:GHOSTLY_ESSENCE",
+          "qty": 2
+        },
+        {
+          "id": "ANCIENT_RUNE_ENDER",
+          "qty": 4
+        },
+        {
+          "id": "DYNATECH:VEX_GEM",
+          "qty": 2
+        },
+        {
+          "id": "WITHER_ROSE",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "DYNATECH:GHOSTLY_ESSENCE",
+          "qty": 1
+        },
+        {
+          "id": "ANCIENT_RUNE_ENDER",
+          "qty": 1
+        },
+        {
+          "id": "DYNATECH:VEX_GEM",
+          "qty": 1
+        },
+        {
+          "id": "ANCIENT_RUNE_ENDER",
+          "qty": 1
+        },
+        {
+          "id": "WITHER_ROSE",
+          "qty": 1
+        },
+        {
+          "id": "ANCIENT_RUNE_ENDER",
+          "qty": 1
+        },
+        {
+          "id": "DYNATECH:VEX_GEM",
+          "qty": 1
+        },
+        {
+          "id": "ANCIENT_RUNE_ENDER",
+          "qty": 1
+        },
+        {
+          "id": "DYNATECH:GHOSTLY_ESSENCE",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "DYNATECH:TESSERACTING_OBJ",
+      "recipeAliasAddon": "动力科技"
     },
     {
       "id": "SLIMETINKER:SMELTERY_CONTROLLER",
@@ -54308,10 +54753,42 @@
       "englishName": "NTW_REMOTE_PRISTINE",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "ntw_remote_pristine",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "NETWORKS:NTW_REMOTE_EMPOWERED",
+          "qty": 2
+        },
+        {
+          "id": "NETWORKS:NTW_PRISTINE_AI_CORE",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        null,
+        {
+          "id": "NETWORKS:NTW_REMOTE_EMPOWERED",
+          "qty": 1
+        },
+        null,
+        null,
+        {
+          "id": "NETWORKS:NTW_PRISTINE_AI_CORE",
+          "qty": 1
+        },
+        null,
+        null,
+        {
+          "id": "NETWORKS:NTW_REMOTE_EMPOWERED",
+          "qty": 1
+        },
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "NETWORKS:NTW_REMOTE_PRISTINE",
+      "recipeAliasAddon": "网络附属"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MIXED_METAL",
@@ -54865,10 +55342,64 @@
       "englishName": "MIXED_METAL_INGOT",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "litexpansion:metal_forge",
       "icon": "mixed_metal_ingot",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "LITEXPANSION:REFINED_IRON",
+          "qty": 3
+        },
+        {
+          "id": "BRONZE_INGOT",
+          "qty": 3
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 3
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "LITEXPANSION:REFINED_IRON",
+          "qty": 1
+        },
+        {
+          "id": "LITEXPANSION:REFINED_IRON",
+          "qty": 1
+        },
+        {
+          "id": "LITEXPANSION:REFINED_IRON",
+          "qty": 1
+        },
+        {
+          "id": "BRONZE_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "BRONZE_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "BRONZE_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "LITEXPANSION:MIXED_METAL_INGOT",
+      "recipeAliasAddon": "工业拓展附属"
     },
     {
       "id": "SLIMETINKER:NUGGET_CAST_FONDNESS",
@@ -55081,10 +55612,60 @@
       "englishName": "EARTH_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "earth_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "INFINITYEXPANSION:COMPRESSED_COBBLESTONE_4",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:COAL_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:IRON_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:COPPER_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:LEAD_SINGULARITY",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "INFINITYEXPANSION:COMPRESSED_COBBLESTONE_4",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:COAL_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:IRON_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:COPPER_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:LEAD_SINGULARITY",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:EARTH_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_EARTH_SINGULARITY",
@@ -55665,10 +56246,32 @@
       "englishName": "SEGGANESSON",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "矿石粉碎机",
       "icon": "segganesson",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "SLIMEFUNWARFARE:SEGGANESSON_METEOR",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "SLIMEFUNWARFARE:SEGGANESSON_METEOR",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "SLIMEFUNWARFARE:SEGGANESSON",
+      "recipeAliasAddon": "战争工艺"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_SEGGANESSON",
@@ -56702,10 +57305,32 @@
       "englishName": "GHOSTLY_ESSENCE",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "生物掉落",
       "icon": "ghostly_essence",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "PLAYER_HEAD",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        null,
+        null,
+        null,
+        null,
+        {
+          "id": "PLAYER_HEAD",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "DYNATECH:GHOSTLY_ESSENCE",
+      "recipeAliasAddon": "动力科技"
     },
     {
       "id": "SLIMETINKER:PART_ROD_GHOSTLY_ESSENCE",
@@ -56886,10 +57511,32 @@
       "englishName": "SCRAP",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "litexpansion:scrap_machine",
       "icon": "scrap",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "COBBLESTONE",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "COBBLESTONE",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "LITEXPANSION:SCRAP",
+      "recipeAliasAddon": "工业拓展附属"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_SCRAP",
@@ -58596,10 +59243,67 @@
       "englishName": "REINFORCED_SLIMESTEEL_INGOT",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "冶炼炉",
       "icon": "reinforced_slimesteel_ingot",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "SLIMEFUNWARFARE:SLIMESTEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SLIME_BLOCK",
+          "qty": 1
+        },
+        {
+          "id": "DAMASCUS_STEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "HARDENED_METAL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "CORINTHIAN_BRONZE_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "ALUMINUM_BRONZE_INGOT",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "SLIMEFUNWARFARE:SLIMESTEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SLIME_BLOCK",
+          "qty": 1
+        },
+        {
+          "id": "DAMASCUS_STEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "HARDENED_METAL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "CORINTHIAN_BRONZE_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "ALUMINUM_BRONZE_INGOT",
+          "qty": 1
+        },
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "SLIMEFUNWARFARE:REINFORCED_SLIMESTEEL_INGOT",
+      "recipeAliasAddon": "战争工艺"
     },
     {
       "id": "VEX_GEM",
@@ -58607,10 +59311,32 @@
       "englishName": "VEX_GEM",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "生物掉落",
       "icon": "vex_gem",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "PLAYER_HEAD",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        null,
+        null,
+        null,
+        null,
+        {
+          "id": "PLAYER_HEAD",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "DYNATECH:VEX_GEM",
+      "recipeAliasAddon": "动力科技"
     },
     {
       "id": "SLIMETINKER:PART_GAMBESON_VEX_GEM",
@@ -59224,10 +59950,35 @@
       "englishName": "INFINITY_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "infinity_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "INFINITYEXPANSION:INFINITE_INGOT",
+          "qty": 100
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "INFINITYEXPANSION:INFINITE_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "INFINITYEXPANSION:INFINITE_INGOT",
+          "qty": 36
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:INFINITY_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_INFINITY_SINGULARITY",
@@ -59708,10 +60459,67 @@
       "englishName": "INFINITE_INGOT",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "冶炼炉",
       "icon": "infinite_ingot",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "INFINITYEXPANSION:EARTH_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MYTHRIL",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:FORTUNE_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MAGIC_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:VOID_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:METAL_SINGULARITY",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "INFINITYEXPANSION:EARTH_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MYTHRIL",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:FORTUNE_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MAGIC_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:VOID_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:METAL_SINGULARITY",
+          "qty": 1
+        },
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:INFINITE_INGOT",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "FORTUNE_SINGULARITY",
@@ -59719,10 +60527,60 @@
       "englishName": "FORTUNE_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "fortune_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "INFINITYEXPANSION:GOLD_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:DIAMOND_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:EMERALD_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:NETHERITE_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:ADAMANTITE",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "INFINITYEXPANSION:GOLD_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:DIAMOND_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:EMERALD_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:NETHERITE_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:ADAMANTITE",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:FORTUNE_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_FORTUNE_SINGULARITY",
@@ -60210,10 +61068,32 @@
       "englishName": "STAR_DUST",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "磨石",
       "icon": "star_dust",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "DYNATECH:STARDUST_METEOR",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "DYNATECH:STARDUST_METEOR",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "DYNATECH:STAR_DUST",
+      "recipeAliasAddon": "动力科技"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_STAR_DUST",
@@ -61905,10 +62785,32 @@
       "englishName": "RUBBER",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "litexpansion:rubber_synthesizer",
       "icon": "rubber",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "BUCKET_OF_OIL",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "BUCKET_OF_OIL",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "LITEXPANSION:RUBBER",
+      "recipeAliasAddon": "工业拓展附属"
     },
     {
       "id": "SLIMETINKER:PART_GAMBESON_RUBBER",
@@ -80004,10 +80906,46 @@
       "englishName": "MAGNONIUM",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "冶炼炉",
       "icon": "magnonium",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "INFINITYEXPANSION:MAGSTEEL",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MAGNESIUM_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:END_ESSENCE",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "INFINITYEXPANSION:MAGSTEEL",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MAGNESIUM_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:END_ESSENCE",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:MAGNONIUM",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MAGNONIUM",
@@ -80495,10 +81433,46 @@
       "englishName": "MAGSTEEL",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "冶炼炉",
       "icon": "magsteel",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "STEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "MAGNESIUM_DUST",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "STEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "MAGNESIUM_DUST",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:MAGSTEEL",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MAGSTEEL",
@@ -81598,10 +82572,46 @@
       "englishName": "MYTHRIL",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "冶炼炉",
       "icon": "mythril",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "REINFORCED_ALLOY_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:IRON_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "HARDENED_METAL_INGOT",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "REINFORCED_ALLOY_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:IRON_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "HARDENED_METAL_INGOT",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:MYTHRIL",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MYTHRIL",
@@ -82155,10 +83165,35 @@
       "englishName": "RAW_CARBON_MESH",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "raw_carbon_mesh",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "LITEXPANSION:RAW_CARBON_FIBRE",
+          "qty": 2
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "LITEXPANSION:RAW_CARBON_FIBRE",
+          "qty": 1
+        },
+        {
+          "id": "LITEXPANSION:RAW_CARBON_FIBRE",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "LITEXPANSION:RAW_CARBON_MESH",
+      "recipeAliasAddon": "工业拓展附属"
     },
     {
       "id": "SLIMETINKER:PART_GAMBESON_CARBON_MESH",
@@ -82352,10 +83387,32 @@
       "englishName": "REFINED_IRON",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "litexpansion:refined_smeltery",
       "icon": "refined_iron",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "IRON_INGOT",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "IRON_INGOT",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "LITEXPANSION:REFINED_IRON",
+      "recipeAliasAddon": "工业拓展附属"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_REFINED_IRON",
@@ -82909,10 +83966,46 @@
       "englishName": "ADAMANTITE",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "冶炼炉",
       "icon": "adamantite",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "REDSTONE_ALLOY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:DIAMOND_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MAGSTEEL",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "REDSTONE_ALLOY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:DIAMOND_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MAGSTEEL",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:ADAMANTITE",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_ADAMANTITE",
@@ -83905,10 +84998,42 @@
       "englishName": "NTW_REMOTE_ULTIMATE",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "ntw_remote_ultimate",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "NETWORKS:NTW_REMOTE_PRISTINE",
+          "qty": 2
+        },
+        {
+          "id": "NETWORKS:NTW_INTERDIMENSIONAL_PRESENCE",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        null,
+        {
+          "id": "NETWORKS:NTW_REMOTE_PRISTINE",
+          "qty": 1
+        },
+        null,
+        null,
+        {
+          "id": "NETWORKS:NTW_INTERDIMENSIONAL_PRESENCE",
+          "qty": 1
+        },
+        null,
+        null,
+        {
+          "id": "NETWORKS:NTW_REMOTE_PRISTINE",
+          "qty": 1
+        },
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "NETWORKS:NTW_REMOTE_ULTIMATE",
+      "recipeAliasAddon": "网络附属"
     },
     {
       "id": "SLIMETINKER:PART_LINKS_ULTIMANINIUM",
@@ -84748,10 +85873,56 @@
       "englishName": "VOID_INGOT",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "void_ingot",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "INFINITYEXPANSION:VOID_DUST",
+          "qty": 9
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "INFINITYEXPANSION:VOID_DUST",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:VOID_DUST",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:VOID_DUST",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:VOID_DUST",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:VOID_DUST",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:VOID_DUST",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:VOID_DUST",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:VOID_DUST",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:VOID_DUST",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:VOID_INGOT",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_GAMBESON_WARPED_ROOT",
@@ -84852,10 +86023,64 @@
       "englishName": "DAXI_ABSORPTION",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "纳米工作台",
       "icon": "daxi_absorption",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 4
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_DOWN_2",
+          "qty": 4
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEINGOT",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_DOWN_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_DOWN_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEINGOT",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_DOWN_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_DOWN_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "TRANSCENDENCE:DAXI_ABSORPTION",
+      "recipeAliasAddon": "末地科技"
     },
     {
       "id": "DAXI_FORTITUDE",
@@ -84863,10 +86088,64 @@
       "englishName": "DAXI_FORTITUDE",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "纳米工作台",
       "icon": "daxi_fortitude",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 4
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_LEFT_2",
+          "qty": 4
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEINGOT",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_LEFT_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_LEFT_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEINGOT",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_LEFT_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_LEFT_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "TRANSCENDENCE:DAXI_FORTITUDE",
+      "recipeAliasAddon": "末地科技"
     },
     {
       "id": "DAXI_SATURATION",
@@ -84874,10 +86153,64 @@
       "englishName": "DAXI_SATURATION",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "纳米工作台",
       "icon": "daxi_saturation",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 4
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_RIGHT_2",
+          "qty": 4
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEINGOT",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_RIGHT_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_RIGHT_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEINGOT",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_RIGHT_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_RIGHT_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "TRANSCENDENCE:DAXI_SATURATION",
+      "recipeAliasAddon": "末地科技"
     },
     {
       "id": "DAXI_REGENERATION",
@@ -84885,10 +86218,76 @@
       "englishName": "DAXI_REGENERATION",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "纳米工作台",
       "icon": "daxi_regeneration",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 4
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_UP_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_LEFT_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEINGOT",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_RIGHT_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_DOWN_2",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_UP_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_LEFT_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEINGOT",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_RIGHT_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_DOWN_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "TRANSCENDENCE:DAXI_REGENERATION",
+      "recipeAliasAddon": "末地科技"
     },
     {
       "id": "DAXI_STRENGTH",
@@ -84896,10 +86295,64 @@
       "englishName": "DAXI_STRENGTH",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "纳米工作台",
       "icon": "daxi_strength",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 4
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_UP_2",
+          "qty": 4
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEINGOT",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_UP_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_UP_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEINGOT",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_UP_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:ZOT_UP_2",
+          "qty": 1
+        },
+        {
+          "id": "TRANSCENDENCE:STABLEBLOCK",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "TRANSCENDENCE:DAXI_STRENGTH",
+      "recipeAliasAddon": "末地科技"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_DAXI_ABSORPTION",
@@ -86277,10 +87730,68 @@
       "englishName": "NTW_INTERDIMENSIONAL_PRESENCE",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "ntw_interdimensional_presence",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "PLUTONIUM",
+          "qty": 6
+        },
+        {
+          "id": "REINFORCED_ALLOY_MULTI_TOOL",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_PRISTINE_AI_CORE",
+          "qty": 1
+        },
+        {
+          "id": "NETHERSTAR_REACTOR",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "PLUTONIUM",
+          "qty": 1
+        },
+        {
+          "id": "REINFORCED_ALLOY_MULTI_TOOL",
+          "qty": 1
+        },
+        {
+          "id": "PLUTONIUM",
+          "qty": 1
+        },
+        {
+          "id": "PLUTONIUM",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_PRISTINE_AI_CORE",
+          "qty": 1
+        },
+        {
+          "id": "PLUTONIUM",
+          "qty": 1
+        },
+        {
+          "id": "PLUTONIUM",
+          "qty": 1
+        },
+        {
+          "id": "NETHERSTAR_REACTOR",
+          "qty": 1
+        },
+        {
+          "id": "PLUTONIUM",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "NETWORKS:NTW_INTERDIMENSIONAL_PRESENCE",
+      "recipeAliasAddon": "网络附属"
     },
     {
       "id": "SLIMETINKER:PART_GAMBESON_SLIME_STEEL",
@@ -86447,10 +87958,39 @@
       "englishName": "SLIMESTEEL_INGOT",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "冶炼炉",
       "icon": "slimesteel_ingot",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "STEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:SLIME_BALL",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "STEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:SLIME_BALL",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "SLIMEFUNWARFARE:SLIMESTEEL_INGOT",
+      "recipeAliasAddon": "战争工艺"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_DUMMY",
@@ -87227,10 +88767,148 @@
       "englishName": "GOLD_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "gold_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "GOLD_INGOT",
+          "qty": 2000
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "GOLD_INGOT",
+          "qty": 16
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:GOLD_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_GOLD_SINGULARITY",
@@ -87718,10 +89396,60 @@
       "englishName": "METAL_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "metal_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "INFINITYEXPANSION:SILVER_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:ALUMINUM_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:TIN_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:ZINC_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:TITANIUM",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "INFINITYEXPANSION:SILVER_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:ALUMINUM_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:TIN_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:ZINC_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:TITANIUM",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:METAL_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_METAL_SINGULARITY",
@@ -88209,10 +89937,32 @@
       "englishName": "THORIUM",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "slimefun:geo_miner",
       "icon": "thorium",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "PAPER",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        null,
+        null,
+        null,
+        null,
+        {
+          "id": "PAPER",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "LITEXPANSION:THORIUM",
+      "recipeAliasAddon": "工业拓展附属"
     },
     {
       "id": "TITANIUM",
@@ -88220,10 +89970,46 @@
       "englishName": "TITANIUM",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "冶炼炉",
       "icon": "titanium",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "REINFORCED_ALLOY_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "DAMASCUS_STEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "HARDENED_METAL_INGOT",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "REINFORCED_ALLOY_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "DAMASCUS_STEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "HARDENED_METAL_INGOT",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:TITANIUM",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_TITANIUM",
@@ -89869,10 +91655,53 @@
       "englishName": "DIAMOND_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "diamond_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "DIAMOND",
+          "qty": 500
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "DIAMOND",
+          "qty": 64
+        },
+        {
+          "id": "DIAMOND",
+          "qty": 64
+        },
+        {
+          "id": "DIAMOND",
+          "qty": 64
+        },
+        {
+          "id": "DIAMOND",
+          "qty": 64
+        },
+        {
+          "id": "DIAMOND",
+          "qty": 64
+        },
+        {
+          "id": "DIAMOND",
+          "qty": 64
+        },
+        {
+          "id": "DIAMOND",
+          "qty": 64
+        },
+        {
+          "id": "DIAMOND",
+          "qty": 52
+        },
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:DIAMOND_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_IRON",
@@ -90360,10 +92189,148 @@
       "englishName": "IRON_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "iron_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "IRON_INGOT",
+          "qty": 2000
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "IRON_INGOT",
+          "qty": 16
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:IRON_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_IRON_SINGULARITY",
@@ -91364,10 +93331,208 @@
       "englishName": "LEAD_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "lead_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "LEAD_INGOT",
+          "qty": 3000
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "LEAD_INGOT",
+          "qty": 56
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:LEAD_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_LEAD_SINGULARITY",
@@ -92401,10 +94566,208 @@
       "englishName": "COPPER_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "copper_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "COPPER_INGOT",
+          "qty": 3000
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "COPPER_INGOT",
+          "qty": 56
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:COPPER_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_COPPER_SINGULARITY",
@@ -93438,10 +95801,208 @@
       "englishName": "ALUMINUM_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "aluminum_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 3000
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ALUMINUM_INGOT",
+          "qty": 56
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:ALUMINUM_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_ALUMINUM_SINGULARITY",
@@ -96113,10 +98674,208 @@
       "englishName": "SILVER_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "silver_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "SILVER_INGOT",
+          "qty": 3000
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "SILVER_INGOT",
+          "qty": 56
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:SILVER_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_SILVER_SINGULARITY",
@@ -97729,10 +100488,32 @@
       "englishName": "OSMIUM_INGOT",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "冶炼炉",
       "icon": "osmium_ingot",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "SLIMEFUNWARFARE:OSMIUM_DUST",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "SLIMEFUNWARFARE:OSMIUM_DUST",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "SLIMEFUNWARFARE:OSMIUM_INGOT",
+      "recipeAliasAddon": "战争工艺"
     },
     {
       "id": "OSMIUM_SUPERALLOY",
@@ -97740,10 +100521,67 @@
       "englishName": "OSMIUM_SUPERALLOY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "冶炼炉",
       "icon": "osmium_superalloy",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "SLIMEFUNWARFARE:OSMIUM_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:REINFORCED_SLIMESTEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "REINFORCED_ALLOY_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:OSMIUM_DUST",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:GADOLINIUM_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:TERBIUM_INGOT",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "SLIMEFUNWARFARE:OSMIUM_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:REINFORCED_SLIMESTEEL_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "REINFORCED_ALLOY_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:OSMIUM_DUST",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:GADOLINIUM_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:TERBIUM_INGOT",
+          "qty": 1
+        },
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "SLIMEFUNWARFARE:OSMIUM_SUPERALLOY",
+      "recipeAliasAddon": "战争工艺"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_OSMIUM_SUPERALLOY",
@@ -98810,10 +101648,208 @@
       "englishName": "ZINC_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "zinc_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "ZINC_INGOT",
+          "qty": 3000
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 56
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:ZINC_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_ZINC_SINGULARITY",
@@ -100012,10 +103048,208 @@
       "englishName": "TIN_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "tin_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "TIN_INGOT",
+          "qty": 3000
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "TIN_INGOT",
+          "qty": 56
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:TIN_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_TIN_SINGULARITY",
@@ -101115,10 +104349,208 @@
       "englishName": "MAGNESIUM_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "magnesium_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 3000
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 64
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 56
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:MAGNESIUM_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MAGNESIUM_SINGULARITY",
@@ -101639,10 +105071,53 @@
       "englishName": "MAG_THOR",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "冶炼炉",
       "icon": "mag_thor",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "REINFORCED_ALLOY_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "LITEXPANSION:THORIUM",
+          "qty": 1
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "REINFORCED_ALLOY_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "LITEXPANSION:THORIUM",
+          "qty": 1
+        },
+        {
+          "id": "MAGNESIUM_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "ZINC_INGOT",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "LITEXPANSION:MAG_THOR",
+      "recipeAliasAddon": "工业拓展附属"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MAG_THOR",
@@ -103288,10 +106763,68 @@
       "englishName": "UNPATENTABLIUM",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "slimefunwarfare:element_forge",
       "icon": "unpatentablium",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "SLIMEFUNWARFARE:SEGGANESSON",
+          "qty": 4
+        },
+        {
+          "id": "SLIMEFUNWARFARE:ARSENIC",
+          "qty": 2
+        },
+        {
+          "id": "SLIMEFUNWARFARE:OSMIUM_DUST",
+          "qty": 2
+        },
+        {
+          "id": "SLIMEFUNWARFARE:OSMIUM_INGOT",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "SLIMEFUNWARFARE:SEGGANESSON",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:ARSENIC",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:SEGGANESSON",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:OSMIUM_DUST",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:OSMIUM_INGOT",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:OSMIUM_DUST",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:SEGGANESSON",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:ARSENIC",
+          "qty": 1
+        },
+        {
+          "id": "SLIMEFUNWARFARE:SEGGANESSON",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "SLIMEFUNWARFARE:UNPATENTABLIUM",
+      "recipeAliasAddon": "战争工艺"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_UNPATENTABLIUM",
@@ -103845,10 +107378,32 @@
       "englishName": "ADVANCED_ALLOY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "压缩机",
       "icon": "advanced_alloy",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "LITEXPANSION:MIXED_METAL_INGOT",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "LITEXPANSION:MIXED_METAL_INGOT",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "LITEXPANSION:ADVANCED_ALLOY",
+      "recipeAliasAddon": "工业拓展附属"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_ADVANCED_ALLOY",
@@ -104402,10 +107957,60 @@
       "englishName": "MAGIC_SINGULARITY",
       "addonName": "匠魂工艺",
       "category": "匠魂工艺",
-      "recipeType": "基础材料",
+      "recipeType": "奇点构造机",
       "icon": "magic_singularity",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "INFINITYEXPANSION:REDSTONE_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:LAPIS_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:QUARTZ_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MAGNESIUM_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MAGNONIUM",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "INFINITYEXPANSION:REDSTONE_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:LAPIS_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:QUARTZ_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MAGNESIUM_SINGULARITY",
+          "qty": 1
+        },
+        {
+          "id": "INFINITYEXPANSION:MAGNONIUM",
+          "qty": 1
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      "output": 1,
+      "recipeAliasOf": "INFINITYEXPANSION:MAGIC_SINGULARITY",
+      "recipeAliasAddon": "无尽贪婪"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MAGIC_SINGULARITY",
@@ -157716,7 +161321,7 @@
       "englishName": "INFINITYEXPANSION:NETHERITE_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "NETHERITE_INGOT",
@@ -157823,7 +161428,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_PICKAXE",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:VOID_INGOT",
@@ -158067,7 +161672,7 @@
       "englishName": "INFINITYEXPANSION:POWERED_BEDROCK",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:COMPRESSED_COBBLESTONE_5",
@@ -158784,7 +162389,7 @@
       "englishName": "INFINITYEXPANSION:EARTH_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "冶炼炉",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:COMPRESSED_COBBLESTONE_4",
@@ -159405,7 +163010,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_BOW",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -159739,7 +163344,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_SHIELD",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -159971,7 +163576,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_BLADE",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -160214,7 +163819,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_CHARGER",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:VOID_INGOT",
@@ -160381,7 +163986,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_REACTOR",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -160560,7 +164165,7 @@
       "englishName": "INFINITYEXPANSION:INFINITE_PANEL",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:CELESTIAL_PANEL",
@@ -160741,7 +164346,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_COBBLE_GEN",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:VOID_INGOT",
@@ -160910,7 +164515,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_CROWN",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -161025,7 +164630,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -161061,7 +164666,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_CONSTRUCTOR",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:MACHINE_PLATE",
@@ -161350,7 +164955,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_LEGGINGS",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -161483,7 +165088,7 @@
       "englishName": "INFINITYEXPANSION:INFINITE_MACHINE_CIRCUIT",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:MACHINE_CIRCUIT",
@@ -161656,7 +165261,7 @@
       "englishName": "INFINITYEXPANSION:INFINITE_MACHINE_CORE",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:MACHINE_PLATE",
@@ -161833,7 +165438,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_CAPACITOR",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -161974,7 +165579,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_QUARRY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:MACHINE_PLATE",
@@ -162139,7 +165744,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_DUST_EXTRACTOR",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:VOID_INGOT",
@@ -162316,7 +165921,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_CHESTPLATE",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -162461,7 +166066,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_VIRTUAL_FARM",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "GLASS",
@@ -162626,7 +166231,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_TREE_GROWER",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "GLASS",
@@ -162797,7 +166402,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_DISENCHANTER",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:VOID_INGOT",
@@ -162952,7 +166557,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_ENCHANTER",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:VOID_INGOT",
@@ -163107,7 +166712,7 @@
       "englishName": "INFINITYEXPANSION:INFINITE_VOID_HARVESTER",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:MACHINE_PLATE",
@@ -163288,7 +166893,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_INGOT_FORMER",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:VOID_INGOT",
@@ -163533,7 +167138,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_BOOTS",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -163654,7 +167259,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_MATRIX",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -163815,7 +167420,7 @@
       "englishName": "INFINITYEXPANSION:FORTUNE_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "冶炼炉",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:GOLD_SINGULARITY",
@@ -163876,7 +167481,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_SHOVEL",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -164836,7 +168441,7 @@
       "englishName": "INFINITYEXPANSION:COAL_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "COAL",
@@ -165233,7 +168838,7 @@
       "englishName": "INFINITYEXPANSION:QUARTZ_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "QUARTZ",
@@ -165814,7 +169419,7 @@
       "englishName": "INFINITYEXPANSION:REDSTONE_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "REDSTONE",
@@ -166130,7 +169735,7 @@
       "englishName": "INFINITYEXPANSION:EMERALD_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "EMERALD",
@@ -166184,7 +169789,7 @@
       "englishName": "INFINITYEXPANSION:INFINITY_AXE",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:infinity_forge",
+      "recipeType": "无尽工作台",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:VOID_INGOT",
@@ -166793,7 +170398,7 @@
       "englishName": "INFINITYEXPANSION:VOID_BIT",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:void_harvester",
+      "recipeType": "虚空收割机",
       "recipe": null,
       "recipeSlots": null,
       "output": 1,
@@ -167271,7 +170876,7 @@
       "englishName": "INFINITYEXPANSION:GOLD_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "GOLD_INGOT",
@@ -167420,7 +171025,7 @@
       "englishName": "INFINITYEXPANSION:METAL_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "冶炼炉",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:SILVER_SINGULARITY",
@@ -167593,7 +171198,7 @@
       "englishName": "INFINITYEXPANSION:DIAMOND_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "DIAMOND",
@@ -167793,7 +171398,7 @@
       "englishName": "INFINITYEXPANSION:IRON_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "IRON_INGOT",
@@ -167942,7 +171547,7 @@
       "englishName": "INFINITYEXPANSION:LEAD_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "LEAD_INGOT",
@@ -168151,7 +171756,7 @@
       "englishName": "INFINITYEXPANSION:COPPER_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "COPPER_INGOT",
@@ -168360,7 +171965,7 @@
       "englishName": "INFINITYEXPANSION:ALUMINUM_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "ALUMINUM_INGOT",
@@ -168569,7 +172174,7 @@
       "englishName": "INFINITYEXPANSION:SILVER_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "SILVER_INGOT",
@@ -168843,7 +172448,7 @@
       "englishName": "INFINITYEXPANSION:ZINC_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "ZINC_INGOT",
@@ -169052,7 +172657,7 @@
       "englishName": "INFINITYEXPANSION:TIN_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "TIN_INGOT",
@@ -169261,7 +172866,7 @@
       "englishName": "INFINITYEXPANSION:MAGNESIUM_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "MAGNESIUM_INGOT",
@@ -169535,7 +173140,7 @@
       "englishName": "INFINITYEXPANSION:LAPIS_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "infinityexpansion:singularity_constructor",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "LAPIS_LAZULI",
@@ -170853,7 +174458,7 @@
       "englishName": "INFINITYEXPANSION:MAGIC_SINGULARITY",
       "addonName": "无尽贪婪",
       "category": "无尽贪婪",
-      "recipeType": "冶炼炉",
+      "recipeType": "奇点构造机",
       "recipe": [
         {
           "id": "INFINITYEXPANSION:REDSTONE_SINGULARITY",
@@ -216926,10 +220531,64 @@
       "englishName": "NTW_EMPOWERED_AI_CORE",
       "addonName": "等价交换2",
       "category": "等价交换2",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "ntw_empowered_ai_core",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "ADVANCED_CIRCUIT_BOARD",
+          "qty": 6
+        },
+        {
+          "id": "NETWORKS:NTW_RADIOACTIVE_OPTIC_STAR",
+          "qty": 2
+        },
+        {
+          "id": "NETWORKS:NTW_AI_CORE",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "ADVANCED_CIRCUIT_BOARD",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_RADIOACTIVE_OPTIC_STAR",
+          "qty": 1
+        },
+        {
+          "id": "ADVANCED_CIRCUIT_BOARD",
+          "qty": 1
+        },
+        {
+          "id": "ADVANCED_CIRCUIT_BOARD",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_AI_CORE",
+          "qty": 1
+        },
+        {
+          "id": "ADVANCED_CIRCUIT_BOARD",
+          "qty": 1
+        },
+        {
+          "id": "ADVANCED_CIRCUIT_BOARD",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_RADIOACTIVE_OPTIC_STAR",
+          "qty": 1
+        },
+        {
+          "id": "ADVANCED_CIRCUIT_BOARD",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "NETWORKS:NTW_EMPOWERED_AI_CORE",
+      "recipeAliasAddon": "网络附属"
     },
     {
       "id": "EMC2:ETC_DIVERGENT_MACHINE_FRAME",
@@ -217982,10 +221641,64 @@
       "englishName": "NTW_RADIOACTIVE_OPTIC_STAR",
       "addonName": "等价交换2",
       "category": "等价交换2",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "ntw_radioactive_optic_star",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "BLISTERING_INGOT_3",
+          "qty": 6
+        },
+        {
+          "id": "NETWORKS:NTW_OPTIC_CABLE",
+          "qty": 2
+        },
+        {
+          "id": "NETWORKS:NTW_OPTIC_STAR",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "BLISTERING_INGOT_3",
+          "qty": 1
+        },
+        {
+          "id": "BLISTERING_INGOT_3",
+          "qty": 1
+        },
+        {
+          "id": "BLISTERING_INGOT_3",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_OPTIC_CABLE",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_OPTIC_STAR",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_OPTIC_CABLE",
+          "qty": 1
+        },
+        {
+          "id": "BLISTERING_INGOT_3",
+          "qty": 1
+        },
+        {
+          "id": "BLISTERING_INGOT_3",
+          "qty": 1
+        },
+        {
+          "id": "BLISTERING_INGOT_3",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "NETWORKS:NTW_RADIOACTIVE_OPTIC_STAR",
+      "recipeAliasAddon": "网络附属"
     },
     {
       "id": "EMC2:ETC_NETWORK_MATERIALIZER",
@@ -218066,10 +221779,64 @@
       "englishName": "NTW_MONITOR",
       "addonName": "等价交换2",
       "category": "等价交换2",
-      "recipeType": "基础材料",
+      "recipeType": "增强型工作台",
       "icon": "ntw_monitor",
-      "recipe": null,
-      "localIcon": "./textures/item/knowledge_book.png"
+      "recipe": [
+        {
+          "id": "NETWORKS:NTW_BRIDGE",
+          "qty": 4
+        },
+        {
+          "id": "NETWORKS:NTW_OPTIC_CABLE",
+          "qty": 4
+        },
+        {
+          "id": "CARGO_MOTOR",
+          "qty": 1
+        }
+      ],
+      "localIcon": "./textures/item/knowledge_book.png",
+      "recipeSlots": [
+        {
+          "id": "NETWORKS:NTW_BRIDGE",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_OPTIC_CABLE",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_BRIDGE",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_OPTIC_CABLE",
+          "qty": 1
+        },
+        {
+          "id": "CARGO_MOTOR",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_OPTIC_CABLE",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_BRIDGE",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_OPTIC_CABLE",
+          "qty": 1
+        },
+        {
+          "id": "NETWORKS:NTW_BRIDGE",
+          "qty": 1
+        }
+      ],
+      "output": 1,
+      "recipeAliasOf": "NETWORKS:NTW_MONITOR",
+      "recipeAliasAddon": "网络附属"
     },
     {
       "id": "EMC2:ETC_DEMATERIALIZER_1",
