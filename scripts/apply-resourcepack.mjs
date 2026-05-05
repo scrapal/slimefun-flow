@@ -1,8 +1,9 @@
 import { execFileSync } from "node:child_process";
 import { existsSync } from "node:fs";
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
-import { basename, dirname, join } from "node:path";
+import { basename, dirname, extname, join } from "node:path";
+import { tmpdir } from "node:os";
 
 const RESOURCE_PACK_PATHS = [
   fileURLToPath(new URL("../Slimefun-ResourcePack.zip", import.meta.url)),
@@ -10,6 +11,7 @@ const RESOURCE_PACK_PATHS = [
 ].filter((path) => existsSync(path));
 const DATA_PATH = new URL("../data/slimefun-items.json", import.meta.url);
 const PUBLIC_DIR = fileURLToPath(new URL("../resourcepack", import.meta.url));
+const RENDER_ICON_SCRIPT = fileURLToPath(new URL("./render-minecraft-item-icon.py", import.meta.url));
 
 if (RESOURCE_PACK_PATHS.length === 0) {
   throw new Error("No resource pack zip found.");
@@ -35,10 +37,7 @@ for (const item of allItems) {
   const match = findBestResourceModel(item, resourceModels);
   if (!match) continue;
 
-  const publicPath = `${match.pack.publicName}/${match.textureEntry.slice(match.textureEntry.indexOf("assets/"))}`;
-  const outputPath = join(PUBLIC_DIR, publicPath);
-  await mkdir(dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, readZipEntry(match.pack, match.textureEntry));
+  const { publicPath } = await writeResourceIcon(match);
 
   item.resourcePackIcon = `./resourcepack/${publicPath}`;
   item.resourcePackModel = match.modelRef;
@@ -62,7 +61,8 @@ function loadResourcePack(path) {
     publicName: basename(path, ".zip").replace(/[^\w.-]+/g, "_"),
     entries,
     entrySet: new Set(entries),
-    modelEntries: entries.filter((entry) => /(^|\/)assets\/minecraft\/items\/.+\.json$/.test(entry)),
+    itemDefinitionEntries: entries.filter((entry) => /(^|\/)assets\/minecraft\/items\/.+\.json$/.test(entry)),
+    directModelEntries: entries.filter((entry) => /(^|\/)assets\/(?!minecraft\/)([^/]+)\/models\/.+\.json$/.test(entry)),
     textureEntries: new Set(entries.filter((entry) => /(^|\/)assets\/.+\/textures\/.+\.png$/.test(entry)))
   };
 }
@@ -81,7 +81,7 @@ function readZipEntry(pack, entry) {
 function parseResourceModels(pack) {
   const models = [];
 
-  for (const entry of pack.modelEntries) {
+  for (const entry of pack.itemDefinitionEntries) {
     const itemMaterial = entry.match(/assets\/minecraft\/items\/(.+)\.json$/)?.[1];
     const itemJson = parseJsonEntry(pack, entry);
     const dispatchEntries = collectDispatchEntries(itemJson?.model);
@@ -91,11 +91,11 @@ function parseResourceModels(pack) {
       if (typeof modelRef !== "string" || modelRef.startsWith("item/") || modelRef.startsWith("block/")) continue;
 
       const modelJson = parseModelRef(pack, modelRef);
-      const textureRef = findModelTextureRef(modelJson);
-      if (!textureRef) continue;
+      const textureRefs = findModelTextureRefs(modelJson);
+      if (textureRefs.length === 0) continue;
 
-      const textureEntry = textureRefToZipEntry(textureRef);
-      if (!pack.textureEntries.has(textureEntry)) continue;
+      const textureEntries = textureRefs.map((textureRef) => textureRefToZipEntry(textureRef));
+      if (!textureEntries.every((textureEntry) => pack.textureEntries.has(textureEntry))) continue;
 
       models.push({
         pack,
@@ -106,10 +106,37 @@ function parseResourceModels(pack) {
         modelKey: normalize(modelRef),
         modelTokens: tokenize(modelRef),
         basename: normalize(modelRef.split("/").at(-1)),
-        textureRef,
-        textureEntry
+        textureRefs,
+        textureEntries
       });
     }
+  }
+
+  for (const entry of pack.directModelEntries) {
+    const match = entry.match(/assets\/([^/]+)\/models\/(.+)\.json$/);
+    if (!match) continue;
+
+    const [, namespace, modelPath] = match;
+    const modelRef = `${namespace}:${modelPath}`;
+    const modelJson = parseJsonEntry(pack, entry);
+    const textureRefs = findModelTextureRefs(modelJson);
+    if (textureRefs.length === 0) continue;
+
+    const textureEntries = textureRefs.map((textureRef) => textureRefToZipEntry(textureRef));
+    if (!textureEntries.every((textureEntry) => pack.textureEntries.has(textureEntry))) continue;
+
+    models.push({
+      pack,
+      namespace,
+      itemMaterial: modelPath.split("/").at(-1),
+      customModelData: null,
+      modelRef,
+      modelKey: normalize(modelRef),
+      modelTokens: tokenize(modelRef),
+      basename: normalize(modelPath.split("/").at(-1)),
+      textureRefs,
+      textureEntries
+    });
   }
 
   return models;
@@ -146,25 +173,52 @@ function textureRefToZipEntry(textureRef) {
   return `assets/${namespace}/textures/${path}.png`;
 }
 
-function findModelTextureRef(modelJson) {
+function findModelTextureRefs(modelJson) {
   const textures = modelJson?.textures;
-  if (!textures || typeof textures !== "object") return null;
-  return textures.layer0 ?? textures.particle ?? Object.values(textures).find((value) => typeof value === "string" && !value.startsWith("#"));
+  if (!textures || typeof textures !== "object") return [];
+  const resolved = resolveTextureRefs(textures);
+  const layerRefs = Object.entries(resolved)
+    .filter(([key, value]) => /^layer\d+$/.test(key) && typeof value === "string")
+    .sort(([left], [right]) => Number(left.replace("layer", "")) - Number(right.replace("layer", "")))
+    .map(([, value]) => value);
+
+  if (layerRefs.length > 0) return layerRefs;
+
+  const fallback = resolved.particle ?? Object.values(resolved).find((value) => typeof value === "string");
+  return fallback ? [fallback] : [];
+}
+
+function resolveTextureRefs(textures) {
+  const resolved = {};
+  for (const key of Object.keys(textures)) {
+    resolved[key] = resolveTextureRefValue(textures[key], textures);
+  }
+  return resolved;
+}
+
+function resolveTextureRefValue(value, textures, seen = new Set()) {
+  if (typeof value !== "string") return null;
+  if (!value.startsWith("#")) return value;
+
+  const key = value.slice(1);
+  if (seen.has(key)) return null;
+  seen.add(key);
+  return resolveTextureRefValue(textures[key], textures, seen);
 }
 
 function findBestResourceModel(item, models) {
   if (item.addonName === "Minecraft") return null;
 
-  const allowedNamespace = addonNamespace(item.addonName);
-  if (!allowedNamespace) return null;
+  const allowedNamespaces = addonNamespaces(item.addonName);
+  if (allowedNamespaces.size === 0) return null;
 
-  const itemId = normalize(item.id);
-  const itemTokens = significantTokens(tokenize(item.id));
+  const itemId = normalize(localItemId(item.id));
+  const itemTokens = significantTokens(tokenize(localItemId(item.id)));
   const reducedTokens = itemTokens.filter((token) => !["programmable", "advanced", "normal"].includes(token));
   let best = null;
 
   for (const model of models) {
-    if (allowedNamespace && model.namespace !== allowedNamespace) continue;
+    if (!allowedNamespaces.has(model.namespace)) continue;
     const score = scoreModel(itemId, itemTokens, reducedTokens, model);
     if (score <= 0) continue;
     if (!best || score > best.score || (score === best.score && model.modelRef.length < best.model.modelRef.length)) {
@@ -175,9 +229,10 @@ function findBestResourceModel(item, models) {
   return best?.score >= 48 ? best.model : null;
 }
 
-function addonNamespace(addonName) {
-  if (addonName === "Slimefun") return "slimefun";
-  return null;
+function addonNamespaces(addonName) {
+  if (addonName === "Slimefun") return new Set(["slimefun"]);
+  if (addonName === "无尽贪婪") return new Set(["infinityexpansion", "infinityexpansion2"]);
+  return new Set();
 }
 
 function scoreModel(itemId, itemTokens, reducedTokens, model) {
@@ -215,4 +270,52 @@ function significantTokens(tokens) {
 
 function normalize(value) {
   return tokenize(value).join("");
+}
+
+function localItemId(value) {
+  return String(value ?? "").split(":").at(-1);
+}
+
+async function writeResourceIcon(match) {
+  const firstTextureEntry = match.textureEntries[0];
+  const basePublicPath = `${match.pack.publicName}/${firstTextureEntry.slice(firstTextureEntry.indexOf("assets/"))}`;
+  const hasAnimation = match.textureEntries.some((textureEntry) => match.pack.entrySet.has(`${textureEntry}.mcmeta`));
+  const needsRender = hasAnimation || match.textureEntries.length > 1;
+
+  if (!needsRender) {
+    const outputPath = join(PUBLIC_DIR, basePublicPath);
+    await mkdir(dirname(outputPath), { recursive: true });
+    await writeFile(outputPath, readZipEntry(match.pack, firstTextureEntry));
+    return { publicPath: basePublicPath };
+  }
+
+  const extension = hasAnimation ? ".gif" : ".png";
+  const publicPath = basePublicPath.replace(new RegExp(`${escapeRegExp(extname(basePublicPath))}$`), extension);
+  const outputPath = join(PUBLIC_DIR, publicPath);
+  const tempDir = await mkdtemp(join(tmpdir(), "slimefun-icon-"));
+
+  try {
+    const layerPaths = [];
+    for (const [index, textureEntry] of match.textureEntries.entries()) {
+      const layerPath = join(tempDir, `layer-${index}.png`);
+      await writeFile(layerPath, readZipEntry(match.pack, textureEntry));
+      layerPaths.push(layerPath);
+
+      const metaEntry = `${textureEntry}.mcmeta`;
+      if (match.pack.entrySet.has(metaEntry)) {
+        await writeFile(`${layerPath}.mcmeta`, readZipEntry(match.pack, metaEntry));
+      }
+    }
+
+    await mkdir(dirname(outputPath), { recursive: true });
+    execFileSync("python3", [RENDER_ICON_SCRIPT, outputPath, ...layerPaths], { stdio: "pipe" });
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
+
+  return { publicPath };
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
