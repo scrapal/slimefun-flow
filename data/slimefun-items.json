@@ -14,8 +14,8 @@
     "assistantImportedItems": 4435,
     "assistantRetainedOldItems": 84,
     "generatedBlockIcons": 34,
-    "generatedHeadBlockIcons": 792,
-    "generatedHeadBlockIconTextures": 659,
+    "generatedHeadBlockIcons": 798,
+    "generatedHeadBlockIconTextures": 665,
     "failedHeadBlockIconTextures": 2,
     "deploySafe": false,
     "deploySafeNote": "公开部署版已包含本地材质资源引用。请确认你拥有相关材质的公开分发/商业使用权。",
@@ -24,7 +24,7 @@
     "haimanTechSource": "HaimanTech2-Release-1.9.10/RSC_HaimanTech2",
     "haimanTechImportedItems": 821,
     "haimanTechVersion": "Release-1.9.10",
-    "recipeAliasCopied": 58,
+    "recipeAliasCopied": 0,
     "recipeAliasNote": "为无命名空间的同名附属物品补充有命名空间物品的配方，避免材料树把它们误判为基础材料。"
   },
   "items": [
@@ -6302,7 +6302,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "SMOOTH_STONE",
@@ -6343,7 +6342,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "SMG:SMG_GENERATOR_COBBLESTONE",
-      "recipeAliasAddon": "简易材料生成器"
+      "recipeAliasAddon": "简易材料生成器",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "FNFAL:FN_GEM_INFERNO",
@@ -8701,7 +8701,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "STONE_BRICKS",
@@ -8742,7 +8741,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "SMG:SMG_GENERATOR_GRAVEL",
-      "recipeAliasAddon": "简易材料生成器"
+      "recipeAliasAddon": "简易材料生成器",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "FNFAL:FN_STAFF_HEALING",
@@ -9055,7 +9055,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "STEEL_INGOT",
@@ -9096,7 +9095,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "SMG:SMG_GENERATOR_SOUL_SAND",
-      "recipeAliasAddon": "简易材料生成器"
+      "recipeAliasAddon": "简易材料生成器",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "FNFAL:FN_GEM_SMOKE_CRIMINAL",
@@ -11934,7 +11934,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "SOLDER_INGOT",
@@ -11975,7 +11974,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "SMG:SMG_GENERATOR_NETHERRACK",
-      "recipeAliasAddon": "简易材料生成器"
+      "recipeAliasAddon": "简易材料生成器",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "FNFAL:FN_MACHINERY_DIAMOND_PLATING",
@@ -12269,7 +12269,6 @@
           "qty": 7
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "LITEXPANSION:UU_MATTER",
@@ -12304,7 +12303,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "LITEXPANSION:IRIDIUM",
-      "recipeAliasAddon": "工业拓展附属"
+      "recipeAliasAddon": "工业拓展附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "FNFAL:FN_MACHINERY_THREAD_PART",
@@ -50413,7 +50413,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "MAGNESIUM_INGOT",
@@ -50454,7 +50453,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:EMPTY_DATA_CARD",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "DYNATECH:CHIPPING_GENERATOR",
@@ -53220,7 +53220,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "STEEL_INGOT",
@@ -53246,7 +53245,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "DYNATECH:STAINLESS_STEEL",
-      "recipeAliasAddon": "动力科技"
+      "recipeAliasAddon": "动力科技",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_TESSERACTING_MATERIAL",
@@ -53714,7 +53714,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "DYNATECH:GHOSTLY_ESSENCE",
@@ -53755,7 +53754,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "DYNATECH:TESSERACTING_OBJ",
-      "recipeAliasAddon": "动力科技"
+      "recipeAliasAddon": "动力科技",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:SMELTERY_CONTROLLER",
@@ -54765,7 +54765,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         null,
         {
@@ -54788,7 +54787,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "NETWORKS:NTW_REMOTE_PRISTINE",
-      "recipeAliasAddon": "网络附属"
+      "recipeAliasAddon": "网络附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MIXED_METAL",
@@ -55358,7 +55358,6 @@
           "qty": 3
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "LITEXPANSION:REFINED_IRON",
@@ -55399,7 +55398,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "LITEXPANSION:MIXED_METAL_INGOT",
-      "recipeAliasAddon": "工业拓展附属"
+      "recipeAliasAddon": "工业拓展附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:NUGGET_CAST_FONDNESS",
@@ -55636,7 +55636,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "INFINITYEXPANSION:COMPRESSED_COBBLESTONE_4",
@@ -55665,7 +55664,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:EARTH_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_EARTH_SINGULARITY",
@@ -56254,7 +56254,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "SLIMEFUNWARFARE:SEGGANESSON_METEOR",
@@ -56271,7 +56270,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "SLIMEFUNWARFARE:SEGGANESSON",
-      "recipeAliasAddon": "战争工艺"
+      "recipeAliasAddon": "战争工艺",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_SEGGANESSON",
@@ -57313,7 +57313,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         null,
         null,
@@ -57330,7 +57329,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "DYNATECH:GHOSTLY_ESSENCE",
-      "recipeAliasAddon": "动力科技"
+      "recipeAliasAddon": "动力科技",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_ROD_GHOSTLY_ESSENCE",
@@ -57519,7 +57519,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "COBBLESTONE",
@@ -57536,7 +57535,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "LITEXPANSION:SCRAP",
-      "recipeAliasAddon": "工业拓展附属"
+      "recipeAliasAddon": "工业拓展附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_SCRAP",
@@ -59271,7 +59271,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "SLIMEFUNWARFARE:SLIMESTEEL_INGOT",
@@ -59303,7 +59302,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "SLIMEFUNWARFARE:REINFORCED_SLIMESTEEL_INGOT",
-      "recipeAliasAddon": "战争工艺"
+      "recipeAliasAddon": "战争工艺",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "VEX_GEM",
@@ -59319,7 +59319,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         null,
         null,
@@ -59336,7 +59335,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "DYNATECH:VEX_GEM",
-      "recipeAliasAddon": "动力科技"
+      "recipeAliasAddon": "动力科技",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_GAMBESON_VEX_GEM",
@@ -59958,7 +59958,6 @@
           "qty": 100
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "INFINITYEXPANSION:INFINITE_INGOT",
@@ -59978,7 +59977,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:INFINITY_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_INFINITY_SINGULARITY",
@@ -60487,7 +60487,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "INFINITYEXPANSION:EARTH_SINGULARITY",
@@ -60519,7 +60518,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:INFINITE_INGOT",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "FORTUNE_SINGULARITY",
@@ -60551,7 +60551,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "INFINITYEXPANSION:GOLD_SINGULARITY",
@@ -60580,7 +60579,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:FORTUNE_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_FORTUNE_SINGULARITY",
@@ -61076,7 +61076,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "DYNATECH:STARDUST_METEOR",
@@ -61093,7 +61092,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "DYNATECH:STAR_DUST",
-      "recipeAliasAddon": "动力科技"
+      "recipeAliasAddon": "动力科技",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_STAR_DUST",
@@ -62793,7 +62793,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "BUCKET_OF_OIL",
@@ -62810,7 +62809,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "LITEXPANSION:RUBBER",
-      "recipeAliasAddon": "工业拓展附属"
+      "recipeAliasAddon": "工业拓展附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_GAMBESON_RUBBER",
@@ -80922,7 +80922,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "INFINITYEXPANSION:MAGSTEEL",
@@ -80945,7 +80944,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:MAGNONIUM",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MAGNONIUM",
@@ -81449,7 +81449,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "MAGNESIUM_INGOT",
@@ -81472,7 +81471,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:MAGSTEEL",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MAGSTEEL",
@@ -82588,7 +82588,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "REINFORCED_ALLOY_INGOT",
@@ -82611,7 +82610,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:MYTHRIL",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MYTHRIL",
@@ -83173,7 +83173,6 @@
           "qty": 2
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "LITEXPANSION:RAW_CARBON_FIBRE",
@@ -83193,7 +83192,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "LITEXPANSION:RAW_CARBON_MESH",
-      "recipeAliasAddon": "工业拓展附属"
+      "recipeAliasAddon": "工业拓展附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_GAMBESON_CARBON_MESH",
@@ -83395,7 +83395,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "IRON_INGOT",
@@ -83412,7 +83411,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "LITEXPANSION:REFINED_IRON",
-      "recipeAliasAddon": "工业拓展附属"
+      "recipeAliasAddon": "工业拓展附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_REFINED_IRON",
@@ -83982,7 +83982,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "REDSTONE_ALLOY",
@@ -84005,7 +84004,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:ADAMANTITE",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_ADAMANTITE",
@@ -85010,7 +85010,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         null,
         {
@@ -85033,7 +85032,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "NETWORKS:NTW_REMOTE_ULTIMATE",
-      "recipeAliasAddon": "网络附属"
+      "recipeAliasAddon": "网络附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_LINKS_ULTIMANINIUM",
@@ -85881,7 +85881,6 @@
           "qty": 9
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "INFINITYEXPANSION:VOID_DUST",
@@ -85922,7 +85921,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:VOID_INGOT",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_GAMBESON_WARPED_ROOT",
@@ -86039,7 +86039,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "TRANSCENDENCE:STABLEBLOCK",
@@ -86080,7 +86079,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "TRANSCENDENCE:DAXI_ABSORPTION",
-      "recipeAliasAddon": "末地科技"
+      "recipeAliasAddon": "末地科技",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "DAXI_FORTITUDE",
@@ -86104,7 +86104,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "TRANSCENDENCE:STABLEBLOCK",
@@ -86145,7 +86144,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "TRANSCENDENCE:DAXI_FORTITUDE",
-      "recipeAliasAddon": "末地科技"
+      "recipeAliasAddon": "末地科技",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "DAXI_SATURATION",
@@ -86169,7 +86169,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "TRANSCENDENCE:STABLEBLOCK",
@@ -86210,7 +86209,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "TRANSCENDENCE:DAXI_SATURATION",
-      "recipeAliasAddon": "末地科技"
+      "recipeAliasAddon": "末地科技",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "DAXI_REGENERATION",
@@ -86246,7 +86246,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "TRANSCENDENCE:STABLEBLOCK",
@@ -86287,7 +86286,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "TRANSCENDENCE:DAXI_REGENERATION",
-      "recipeAliasAddon": "末地科技"
+      "recipeAliasAddon": "末地科技",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "DAXI_STRENGTH",
@@ -86311,7 +86311,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "TRANSCENDENCE:STABLEBLOCK",
@@ -86352,7 +86351,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "TRANSCENDENCE:DAXI_STRENGTH",
-      "recipeAliasAddon": "末地科技"
+      "recipeAliasAddon": "末地科技",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_DAXI_ABSORPTION",
@@ -87750,7 +87750,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "PLUTONIUM",
@@ -87791,7 +87790,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "NETWORKS:NTW_INTERDIMENSIONAL_PRESENCE",
-      "recipeAliasAddon": "网络附属"
+      "recipeAliasAddon": "网络附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_GAMBESON_SLIME_STEEL",
@@ -87970,7 +87970,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "STEEL_INGOT",
@@ -87990,7 +87989,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "SLIMEFUNWARFARE:SLIMESTEEL_INGOT",
-      "recipeAliasAddon": "战争工艺"
+      "recipeAliasAddon": "战争工艺",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_DUMMY",
@@ -88775,7 +88775,6 @@
           "qty": 2000
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "GOLD_INGOT",
@@ -88908,7 +88907,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:GOLD_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_GOLD_SINGULARITY",
@@ -89420,7 +89420,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "INFINITYEXPANSION:SILVER_SINGULARITY",
@@ -89449,7 +89448,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:METAL_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_METAL_SINGULARITY",
@@ -89945,7 +89945,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         null,
         null,
@@ -89962,7 +89961,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "LITEXPANSION:THORIUM",
-      "recipeAliasAddon": "工业拓展附属"
+      "recipeAliasAddon": "工业拓展附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "TITANIUM",
@@ -89986,7 +89986,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "REINFORCED_ALLOY_INGOT",
@@ -90009,7 +90008,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:TITANIUM",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_TITANIUM",
@@ -91663,7 +91663,6 @@
           "qty": 500
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "DIAMOND",
@@ -91701,7 +91700,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:DIAMOND_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_IRON",
@@ -92197,7 +92197,6 @@
           "qty": 2000
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "IRON_INGOT",
@@ -92330,7 +92329,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:IRON_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_IRON_SINGULARITY",
@@ -93339,7 +93339,6 @@
           "qty": 3000
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "LEAD_INGOT",
@@ -93532,7 +93531,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:LEAD_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_LEAD_SINGULARITY",
@@ -94574,7 +94574,6 @@
           "qty": 3000
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "COPPER_INGOT",
@@ -94767,7 +94766,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:COPPER_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_COPPER_SINGULARITY",
@@ -95809,7 +95809,6 @@
           "qty": 3000
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "ALUMINUM_INGOT",
@@ -96002,7 +96001,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:ALUMINUM_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_ALUMINUM_SINGULARITY",
@@ -98682,7 +98682,6 @@
           "qty": 3000
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "SILVER_INGOT",
@@ -98875,7 +98874,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:SILVER_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_SILVER_SINGULARITY",
@@ -100496,7 +100496,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "SLIMEFUNWARFARE:OSMIUM_DUST",
@@ -100513,7 +100512,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "SLIMEFUNWARFARE:OSMIUM_INGOT",
-      "recipeAliasAddon": "战争工艺"
+      "recipeAliasAddon": "战争工艺",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "OSMIUM_SUPERALLOY",
@@ -100549,7 +100549,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "SLIMEFUNWARFARE:OSMIUM_INGOT",
@@ -100581,7 +100580,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "SLIMEFUNWARFARE:OSMIUM_SUPERALLOY",
-      "recipeAliasAddon": "战争工艺"
+      "recipeAliasAddon": "战争工艺",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_OSMIUM_SUPERALLOY",
@@ -101656,7 +101656,6 @@
           "qty": 3000
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "ZINC_INGOT",
@@ -101849,7 +101848,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:ZINC_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_ZINC_SINGULARITY",
@@ -103056,7 +103056,6 @@
           "qty": 3000
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "TIN_INGOT",
@@ -103249,7 +103248,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:TIN_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_TIN_SINGULARITY",
@@ -104357,7 +104357,6 @@
           "qty": 3000
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "MAGNESIUM_INGOT",
@@ -104550,7 +104549,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:MAGNESIUM_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MAGNESIUM_SINGULARITY",
@@ -105091,7 +105091,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "REINFORCED_ALLOY_INGOT",
@@ -105117,7 +105116,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "LITEXPANSION:MAG_THOR",
-      "recipeAliasAddon": "工业拓展附属"
+      "recipeAliasAddon": "工业拓展附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MAG_THOR",
@@ -106783,7 +106783,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "SLIMEFUNWARFARE:SEGGANESSON",
@@ -106824,7 +106823,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "SLIMEFUNWARFARE:UNPATENTABLIUM",
-      "recipeAliasAddon": "战争工艺"
+      "recipeAliasAddon": "战争工艺",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_UNPATENTABLIUM",
@@ -107386,7 +107386,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "LITEXPANSION:MIXED_METAL_INGOT",
@@ -107403,7 +107402,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "LITEXPANSION:ADVANCED_ALLOY",
-      "recipeAliasAddon": "工业拓展附属"
+      "recipeAliasAddon": "工业拓展附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_ADVANCED_ALLOY",
@@ -107981,7 +107981,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "INFINITYEXPANSION:REDSTONE_SINGULARITY",
@@ -108010,7 +108009,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "INFINITYEXPANSION:MAGIC_SINGULARITY",
-      "recipeAliasAddon": "无尽贪婪"
+      "recipeAliasAddon": "无尽贪婪",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "SLIMETINKER:PART_REPAIR_KIT_MAGIC_SINGULARITY",
@@ -220547,7 +220547,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "ADVANCED_CIRCUIT_BOARD",
@@ -220588,7 +220587,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "NETWORKS:NTW_EMPOWERED_AI_CORE",
-      "recipeAliasAddon": "网络附属"
+      "recipeAliasAddon": "网络附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "EMC2:ETC_DIVERGENT_MACHINE_FRAME",
@@ -221657,7 +221657,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "BLISTERING_INGOT_3",
@@ -221698,7 +221697,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "NETWORKS:NTW_RADIOACTIVE_OPTIC_STAR",
-      "recipeAliasAddon": "网络附属"
+      "recipeAliasAddon": "网络附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "EMC2:ETC_NETWORK_MATERIALIZER",
@@ -221795,7 +221795,6 @@
           "qty": 1
         }
       ],
-      "localIcon": "./textures/item/knowledge_book.png",
       "recipeSlots": [
         {
           "id": "NETWORKS:NTW_BRIDGE",
@@ -221836,7 +221835,8 @@
       ],
       "output": 1,
       "recipeAliasOf": "NETWORKS:NTW_MONITOR",
-      "recipeAliasAddon": "网络附属"
+      "recipeAliasAddon": "网络附属",
+      "localIcon": "./textures/item/knowledge_book.png"
     },
     {
       "id": "EMC2:ETC_DEMATERIALIZER_1",
@@ -237438,7 +237438,9 @@
       "sourceFile": "HaimanTech2-Release-1.9.10/RSC_HaimanTech2/物品",
       "research": 110000016,
       "researchCost": 30,
-      "localIcon": "./textures/entity/player/wide/steve.png"
+      "headTexture": "96c0e04c430177a7dd9d4eb097c30f442c54adfd499db700ad292f077ed8f39c",
+      "localIcon": "./textures/entity/player/wide/steve.png",
+      "headBlockIcon": "./generated-icons/heads/96c0e04c430177a7dd9d4eb097c30f442c54adfd499db700ad292f077ed8f39c.png"
     },
     {
       "id": "YITOUDAIDAI",
@@ -246649,7 +246651,9 @@
       "sourceFile": "HaimanTech2-Release-1.9.10/RSC_HaimanTech2/物品",
       "research": 120000040,
       "researchCost": 30,
-      "localIcon": "./textures/entity/player/wide/steve.png"
+      "headTexture": "c64c0baaea394586405e1557f57e5059f4d4b03bf07aa2ba0f20938471d271ab",
+      "localIcon": "./textures/entity/player/wide/steve.png",
+      "headBlockIcon": "./generated-icons/heads/c64c0baaea394586405e1557f57e5059f4d4b03bf07aa2ba0f20938471d271ab.png"
     },
     {
       "id": "HAIMAN_TEA",
@@ -274222,7 +274226,9 @@
       "sourceFile": "HaimanTech2-Release-1.9.10/RSC_HaimanTech2/物品",
       "research": 110101049,
       "researchCost": 24,
-      "localIcon": "./textures/entity/player/wide/steve.png"
+      "headTexture": "9eb88a36e1b10b51f6d7fc8bc9d3b21471d64d6e75affb8024cf158642fcb9d",
+      "localIcon": "./textures/entity/player/wide/steve.png",
+      "headBlockIcon": "./generated-icons/heads/9eb88a36e1b10b51f6d7fc8bc9d3b21471d64d6e75affb8024cf158642fcb9d.png"
     },
     {
       "id": "PURPLE_ENERGY",
@@ -274284,7 +274290,9 @@
       "sourceFile": "HaimanTech2-Release-1.9.10/RSC_HaimanTech2/物品",
       "research": 110101049,
       "researchCost": 24,
-      "localIcon": "./textures/entity/player/wide/steve.png"
+      "headTexture": "5989802f5d94a0c74e0489220eca8d3eee0a9d09719e920e545a96d51c0e980d",
+      "localIcon": "./textures/entity/player/wide/steve.png",
+      "headBlockIcon": "./generated-icons/heads/5989802f5d94a0c74e0489220eca8d3eee0a9d09719e920e545a96d51c0e980d.png"
     },
     {
       "id": "RED_ENERGY",
@@ -274346,7 +274354,9 @@
       "sourceFile": "HaimanTech2-Release-1.9.10/RSC_HaimanTech2/物品",
       "research": 110101049,
       "researchCost": 24,
-      "localIcon": "./textures/entity/player/wide/steve.png"
+      "headTexture": "e1dc50f72161d4d1f2f63dbef810f2b35fbd65958836407b2aac910be0adfb5b",
+      "localIcon": "./textures/entity/player/wide/steve.png",
+      "headBlockIcon": "./generated-icons/heads/e1dc50f72161d4d1f2f63dbef810f2b35fbd65958836407b2aac910be0adfb5b.png"
     },
     {
       "id": "YELLOW_ENERGY",
@@ -274408,7 +274418,9 @@
       "sourceFile": "HaimanTech2-Release-1.9.10/RSC_HaimanTech2/物品",
       "research": 110101049,
       "researchCost": 24,
-      "localIcon": "./textures/entity/player/wide/steve.png"
+      "headTexture": "de010766e5ded22961c2e626809e4ff28aa6814e9ec57275a718bbd5df1cbf4c",
+      "localIcon": "./textures/entity/player/wide/steve.png",
+      "headBlockIcon": "./generated-icons/heads/de010766e5ded22961c2e626809e4ff28aa6814e9ec57275a718bbd5df1cbf4c.png"
     },
     {
       "id": "11_DISC_MACHINE",

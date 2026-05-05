@@ -2,8 +2,11 @@
 # frozen_string_literal: true
 
 require "json"
+require "base64"
 require "set"
+require "stringio"
 require "yaml"
+require "zlib"
 
 ROOT = File.expand_path("..", __dir__)
 DATA_PATH = File.join(ROOT, "data", "slimefun-items.json")
@@ -67,9 +70,61 @@ def saved_item_index
 
     index[key] = {
       "material" => material.to_s.empty? ? DEFAULT_ICON.upcase : material.to_s,
-      "name" => name
+      "name" => name,
+      "headTexture" => extract_head_texture(item)
     }
   end
+end
+
+def extract_head_texture(node)
+  strings = []
+  collect_strings(node, strings)
+
+  strings.each do |value|
+    texture = texture_hash_from_text(value)
+    return texture if texture
+
+    decoded_values(value).each do |decoded|
+      texture = texture_hash_from_text(decoded)
+      return texture if texture
+
+      decoded.scan(/[A-Za-z0-9+\/=]{80,}/).each do |encoded_fragment|
+        decoded_values(encoded_fragment).each do |nested_decoded|
+          texture = texture_hash_from_text(nested_decoded)
+          return texture if texture
+        end
+      end
+    end
+  end
+
+  nil
+end
+
+def collect_strings(node, strings)
+  case node
+  when Hash
+    node.each_value { |value| collect_strings(value, strings) }
+  when Array
+    node.each { |value| collect_strings(value, strings) }
+  else
+    strings << node.to_s unless node.nil?
+  end
+end
+
+def texture_hash_from_text(text)
+  text.to_s[%r{textures\.minecraft\.net/texture/([0-9a-f]{32,128})}i, 1]
+end
+
+def decoded_values(value)
+  text = value.to_s.strip
+  return [] if text.length < 32 || !text.match?(/\A[A-Za-z0-9+\/=\s]+\z/)
+
+  decoded = Base64.decode64(text)
+  values = [decoded.dup.force_encoding("UTF-8").scrub]
+  values << Zlib::GzipReader.new(StringIO.new(decoded)).read.force_encoding("UTF-8").scrub if decoded.start_with?("\x1f\x8b".b)
+  values
+rescue StandardError
+  []
 end
 
 def component_text(value)
@@ -119,16 +174,24 @@ end
 
 def icon_from_item(item, saved_items)
   return "player_head" if item["material_type"].to_s == "skull_hash"
+  if item["material_type"].to_s == "saveditem"
+    saved = saved_items[item["material"].to_s]
+    return "player_head" if saved && !saved["headTexture"].to_s.empty?
+  end
 
   material = item_material(item, saved_items)
   material.start_with?("SKULL") ? "player_head" : material.downcase
 end
 
-def head_texture_from_item(item)
+def head_texture_from_item(item, saved_items)
   material_type = item["material_type"].to_s
   material = item["material"].to_s
   return material if material_type == "skull_hash" && material.match?(/\A[0-9a-f]{32,128}\z/i)
   return material.sub(/^SKULL/i, "") if material.match?(/\ASKULL[0-9a-f]{32,128}\z/i)
+  if material_type == "saveditem"
+    saved = saved_items[material]
+    return saved["headTexture"] if saved && !saved["headTexture"].to_s.empty?
+  end
 
   nil
 end
@@ -221,7 +284,7 @@ def build_item(id, raw, file_label, categories, recipe_type_names, researches, s
   slots = recipe_slots(raw["recipe"])
   recipe = flatten_slots(slots)
   recipe_type = recipe_type_name(raw["recipe_type"], recipe_type_names)
-  head_texture = head_texture_from_item(item)
+  head_texture = head_texture_from_item(item, saved_items)
   output = normalize_amount(item["amount"] || 1)
 
   result = {
