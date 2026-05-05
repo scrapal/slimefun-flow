@@ -2,6 +2,7 @@ const DATA_URL = "./data/slimefun-items.json";
 const HEAD_TEXTURE_BASE = "https://textures.minecraft.net/texture";
 const LOCAL_FALLBACK_ICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='8' fill='%23e7f2eb'/%3E%3Cpath d='M13 13h18a4 4 0 0 1 4 4v19H17a4 4 0 0 0-4 4V13z' fill='%232f7d59'/%3E%3Cpath d='M17 17h15v16H17a4 4 0 0 0-4 4V17a4 4 0 0 1 4-4z' fill='%23fff8ee'/%3E%3Cpath d='M20 21h8M20 25h9M20 29h6' stroke='%232f7d59' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E";
 const CHECKLIST_STORAGE_KEY = "slimefun-flow.checklist.v1";
+const EXPORT_MAX_PIXELS = 24_000_000;
 
 const state = {
   itemMap: new Map(),
@@ -33,7 +34,8 @@ const els = {
   zoomOutBtn: document.querySelector("#zoomOutBtn"),
   zoomResetBtn: document.querySelector("#zoomResetBtn"),
   zoomInBtn: document.querySelector("#zoomInBtn"),
-  fitBtn: document.querySelector("#fitBtn")
+  fitBtn: document.querySelector("#fitBtn"),
+  exportImageBtn: document.querySelector("#exportImageBtn")
 };
 
 init();
@@ -89,6 +91,7 @@ function bindEvents() {
   els.zoomInBtn.addEventListener("click", () => setZoom(state.zoom + 0.1));
   els.zoomResetBtn.addEventListener("click", () => setZoom(1));
   els.fitBtn.addEventListener("click", fitGraph);
+  els.exportImageBtn.addEventListener("click", exportGraphImage);
   els.graphViewport.addEventListener("wheel", handleWheel, { passive: false });
   els.resetChecklistBtn.addEventListener("click", resetCurrentChecklist);
 }
@@ -177,6 +180,7 @@ function renderSelected() {
   els.graphTitle.textContent = item.name;
   els.graphSubTitle.textContent = `${item.recipeType} · ${countNodes(tree)} 个图中节点 · ${checklist.size}/${checklistCount} 项已勾选`;
   els.resetChecklistBtn.disabled = checklist.size === 0;
+  els.exportImageBtn.disabled = false;
   renderRightItemInfo(item);
   renderGraph(layout);
   renderDirectRecipe(item);
@@ -467,6 +471,319 @@ function handleWheel(event) {
   if (!event.metaKey && !event.ctrlKey) return;
   event.preventDefault();
   setZoom(state.zoom + (event.deltaY > 0 ? -0.08 : 0.08));
+}
+
+async function exportGraphImage() {
+  const item = state.itemMap.get(state.selectedId);
+  if (!item) return;
+
+  const originalLabel = els.exportImageBtn.textContent;
+  els.exportImageBtn.disabled = true;
+  els.exportImageBtn.textContent = "导出中…";
+
+  try {
+    const tree = buildTree(item.id, 1, 0, []);
+    const layout = layoutTree(tree);
+    const blob = await renderGraphToPngBlob(item, layout);
+    const link = document.createElement("a");
+    const objectUrl = URL.createObjectURL(blob);
+    link.href = objectUrl;
+    link.download = `${safeFilename(item.name || item.id)}-材料树.png`;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+  } catch (error) {
+    alert(`导出失败：${error.message}`);
+  } finally {
+    els.exportImageBtn.disabled = false;
+    els.exportImageBtn.textContent = originalLabel;
+  }
+}
+
+async function renderGraphToPngBlob(item, layout) {
+  const titleHeight = 82;
+  const margin = 26;
+  const width = Math.ceil(layout.width + margin * 2);
+  const height = Math.ceil(layout.height + titleHeight + margin * 2);
+  const scale = Math.min(2, Math.sqrt(EXPORT_MAX_PIXELS / (width * height)));
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.max(1, Math.floor(width * scale));
+  canvas.height = Math.max(1, Math.floor(height * scale));
+
+  const ctx = canvas.getContext("2d");
+  ctx.scale(scale, scale);
+  ctx.fillStyle = "#fbfcfa";
+  ctx.fillRect(0, 0, width, height);
+  drawExportGrid(ctx, width, height);
+
+  ctx.fillStyle = "rgba(245, 247, 242, 0.92)";
+  ctx.fillRect(0, 0, width, titleHeight);
+  ctx.fillStyle = "#121d18";
+  ctx.font = "700 24px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+  ctx.fillText(item.name, margin, 36);
+  ctx.fillStyle = "#5f7169";
+  ctx.font = "15px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+  ctx.fillText(`${item.recipeType} · ${layout.nodes.length} 个图中节点 · 粘液科技配方图`, margin, 61);
+
+  ctx.save();
+  ctx.translate(margin, titleHeight + margin);
+
+  layout.edges.forEach(([parent, child]) => {
+    drawExportEdge(ctx, parent, child, parent.depth === 0);
+  });
+
+  const images = await preloadLayoutImages(layout);
+  const checklist = currentChecklist();
+  layout.nodes
+    .sort((a, b) => a.depth - b.depth)
+    .forEach((node) => drawExportNode(ctx, node, images.get(node.key), checklist.has(node.key)));
+
+  ctx.restore();
+
+  return await new Promise((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (blob) resolve(blob);
+      else reject(new Error("浏览器没有生成图片"));
+    }, "image/png");
+  });
+}
+
+function drawExportGrid(ctx, width, height) {
+  ctx.save();
+  ctx.strokeStyle = "#d5dfd9";
+  ctx.lineWidth = 1;
+  for (let x = 0; x <= width; x += 28) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, height);
+    ctx.stroke();
+  }
+  for (let y = 0; y <= height; y += 28) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(width, y);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function drawExportEdge(ctx, parent, child, primary) {
+  const startX = parent.x + parent.width;
+  const startY = parent.y + parent.height / 2;
+  const endX = child.x;
+  const endY = child.y + child.height / 2;
+  const midX = startX + (endX - startX) * 0.48;
+
+  ctx.save();
+  ctx.strokeStyle = primary ? "#2f7d59" : "#7b8f84";
+  ctx.lineWidth = primary ? 3 : 2.5;
+  ctx.beginPath();
+  ctx.moveTo(startX, startY);
+  ctx.bezierCurveTo(midX, startY, midX, endY, endX, endY);
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawExportNode(ctx, node, iconImage, done) {
+  const x = node.x;
+  const y = node.y;
+  const radius = 8;
+  const borderColor = node.depth === 0 ? "#c06a32" : node.isBase ? "#347b9f" : "#2f7d59";
+  const fill = done ? "#f4f7f5" : node.depth === 0 ? "#fff9f2" : "rgba(255,255,255,0.97)";
+
+  ctx.save();
+  ctx.globalAlpha = done ? 0.72 : 1;
+  ctx.shadowColor = "rgba(28, 42, 35, 0.12)";
+  ctx.shadowBlur = 18;
+  ctx.shadowOffsetY = 9;
+  drawRoundedRect(ctx, x, y, node.width, node.height, radius);
+  ctx.fillStyle = fill;
+  ctx.fill();
+  ctx.shadowColor = "transparent";
+  ctx.strokeStyle = "#cbd7cf";
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  ctx.fillStyle = borderColor;
+  roundedRectPath(ctx, x, y, 6, node.height, 6);
+  ctx.fill();
+
+  drawExportCheckbox(ctx, x + 24, y + node.height / 2, done);
+
+  if (iconImage) {
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(iconImage, x + 58, y + (node.height - 42) / 2, 42, 42);
+  } else {
+    drawExportPlaceholderIcon(ctx, x + 58, y + (node.height - 42) / 2);
+  }
+
+  const textX = x + 112;
+  const textWidth = node.width - 124;
+  ctx.fillStyle = "#121d18";
+  ctx.font = "700 16px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+  drawEllipsizedText(ctx, node.item.name, textX, y + 29, textWidth);
+  if (done) {
+    ctx.strokeStyle = "#5f7169";
+    ctx.lineWidth = 1.2;
+    ctx.beginPath();
+    ctx.moveTo(textX, y + 24);
+    ctx.lineTo(textX + Math.min(textWidth, ctx.measureText(node.item.name).width), y + 24);
+    ctx.stroke();
+  }
+
+  ctx.fillStyle = "#5f7169";
+  ctx.font = "13px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+  const meta = `×${formatQty(node.qty)} · ${node.item.addonName ?? "未知附属"} · ${node.item.recipeType}${node.hasRecipe && state.deep ? ` · ${node.isCollapsed ? "可展开" : "可收起"}` : ""}`;
+  drawWrappedText(ctx, meta, textX, y + 53, textWidth, 17, 2);
+
+  if (node.hasRecipe && state.deep) {
+    ctx.fillStyle = "#e7f2eb";
+    ctx.beginPath();
+    ctx.arc(x + node.width - 16, y + 16, 10, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#2f7d59";
+    ctx.font = "700 14px system-ui, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(node.isCollapsed ? "+" : "−", x + node.width - 16, y + 15);
+    ctx.textAlign = "start";
+    ctx.textBaseline = "alphabetic";
+  }
+
+  ctx.restore();
+}
+
+function drawExportCheckbox(ctx, centerX, centerY, checked) {
+  ctx.save();
+  ctx.strokeStyle = checked ? "#2f7d59" : "#7b8f84";
+  ctx.fillStyle = checked ? "#2f7d59" : "#ffffff";
+  ctx.lineWidth = 2;
+  drawRoundedRect(ctx, centerX - 9, centerY - 9, 18, 18, 3);
+  ctx.fill();
+  ctx.stroke();
+  if (checked) {
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(centerX - 5, centerY);
+    ctx.lineTo(centerX - 1, centerY + 5);
+    ctx.lineTo(centerX + 7, centerY - 6);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function drawExportPlaceholderIcon(ctx, x, y) {
+  ctx.save();
+  drawRoundedRect(ctx, x, y, 42, 42, 8);
+  ctx.fillStyle = "#e7f2eb";
+  ctx.fill();
+  ctx.fillStyle = "#2f7d59";
+  ctx.fillRect(x + 12, y + 10, 17, 23);
+  ctx.fillStyle = "#fff8ee";
+  ctx.fillRect(x + 16, y + 14, 13, 15);
+  ctx.restore();
+}
+
+async function preloadLayoutImages(layout) {
+  const entries = await Promise.all(
+    layout.nodes.map(async (node) => [node.key, await loadExportImage(exportIconSrc(node.item))])
+  );
+  return new Map(entries);
+}
+
+function exportIconSrc(item) {
+  if (item.addonName === "Minecraft" && item.localIcon) return item.localIcon;
+  return item.headBlockIcon ?? item.blockIcon ?? item.resourcePackIcon ?? item.localIcon ?? null;
+}
+
+async function loadExportImage(src) {
+  if (!src) return null;
+
+  return await new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = () => resolve(null);
+    image.src = src;
+  });
+}
+
+function drawRoundedRect(ctx, x, y, width, height, radius) {
+  roundedRectPath(ctx, x, y, width, height, radius);
+  return ctx;
+}
+
+function roundedRectPath(ctx, x, y, width, height, radius) {
+  const r = Math.min(radius, width / 2, height / 2);
+  if (typeof ctx.roundRect === "function") {
+    ctx.beginPath();
+    ctx.roundRect(x, y, width, height, r);
+    return;
+  }
+
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + width - r, y);
+  ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+  ctx.lineTo(x + width, y + height - r);
+  ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+  ctx.lineTo(x + r, y + height);
+  ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+}
+
+function drawEllipsizedText(ctx, text, x, y, maxWidth) {
+  const value = String(text ?? "");
+  if (ctx.measureText(value).width <= maxWidth) {
+    ctx.fillText(value, x, y);
+    return;
+  }
+
+  let output = value;
+  while (output.length > 1 && ctx.measureText(`${output}…`).width > maxWidth) {
+    output = output.slice(0, -1);
+  }
+  ctx.fillText(`${output}…`, x, y);
+}
+
+function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
+  const source = String(text ?? "");
+  const chars = source.split("");
+  let line = "";
+  let lines = [];
+
+  for (const char of chars) {
+    const nextLine = `${line}${char}`;
+    if (line && ctx.measureText(nextLine).width > maxWidth) {
+      lines.push(line);
+      line = char;
+      if (lines.length >= maxLines) break;
+    } else {
+      line = nextLine;
+    }
+  }
+
+  if (line && lines.length < maxLines) lines.push(line);
+  lines = lines.slice(0, maxLines);
+  if (lines.length === maxLines && source !== lines.join("")) {
+    let last = lines.at(-1);
+    while (last.length > 1 && ctx.measureText(`${last}…`).width > maxWidth) {
+      last = last.slice(0, -1);
+    }
+    lines[lines.length - 1] = `${last}…`;
+  }
+
+  lines.forEach((lineText, index) => ctx.fillText(lineText, x, y + index * lineHeight));
+}
+
+function safeFilename(value) {
+  return String(value ?? "materials")
+    .trim()
+    .replace(/[\\/:*?"<>|]+/g, "_")
+    .replace(/\s+/g, "_")
+    .slice(0, 80) || "materials";
 }
 
 async function handleImport(event) {
