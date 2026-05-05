@@ -471,7 +471,7 @@ def load_momotech_items
     id = registration[:id]
     item = {
       "id" => id,
-      "name" => field["name"] || english_from_id(id),
+      "name" => id == "MOMOTECH_UNCONTROLLABLE_EMPTY_" ? "不可控空" : field["name"] || english_from_id(id),
       "englishName" => field["englishName"] || english_from_id(id),
       "addonName" => "乱码科技",
       "category" => registration[:category],

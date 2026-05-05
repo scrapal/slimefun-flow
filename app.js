@@ -3,6 +3,7 @@ const HEAD_TEXTURE_BASE = "https://textures.minecraft.net/texture";
 const LOCAL_FALLBACK_ICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='8' fill='%23e7f2eb'/%3E%3Cpath d='M13 13h18a4 4 0 0 1 4 4v19H17a4 4 0 0 0-4 4V13z' fill='%232f7d59'/%3E%3Cpath d='M17 17h15v16H17a4 4 0 0 0-4 4V17a4 4 0 0 1 4-4z' fill='%23fff8ee'/%3E%3Cpath d='M20 21h8M20 25h9M20 29h6' stroke='%232f7d59' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E";
 const CHECKLIST_STORAGE_KEY = "slimefun-flow.checklist.v1";
 const EXPORT_MAX_PIXELS = 24_000_000;
+const TREE_NODE_LIMIT = 1200;
 
 const state = {
   itemMap: new Map(),
@@ -171,14 +172,20 @@ function renderSelected() {
   const item = state.itemMap.get(state.selectedId);
   if (!item) return;
 
-  const tree = buildTree(item.id, 1, 0, []);
-  const checklistTree = buildTree(item.id, 1, 0, [], item.id, { forceDeep: true, ignoreCollapsed: true });
+  const treeOptions = { maxNodes: TREE_NODE_LIMIT };
+  const tree = buildTree(item.id, 1, 0, [], item.id, treeOptions);
+  const checklistOptions = { forceDeep: true, ignoreCollapsed: true, maxNodes: TREE_NODE_LIMIT };
+  const checklistTree = buildTree(item.id, 1, 0, [], item.id, checklistOptions);
   const layout = layoutTree(tree);
   const checklist = currentChecklist();
   const checklistCount = countNodes(checklistTree);
+  const visibleCount = countNodes(tree);
+  const limitedLabel = treeOptions.nodeBudget?.truncated
+    ? ` · 材料树过大，已先显示 ${visibleCount} 个节点`
+    : "";
 
   els.graphTitle.textContent = item.name;
-  els.graphSubTitle.textContent = `${item.recipeType} · ${countNodes(tree)} 个图中节点 · ${checklist.size}/${checklistCount} 项已勾选`;
+  els.graphSubTitle.textContent = `${item.recipeType} · ${visibleCount} 个图中节点 · ${checklist.size}/${checklistCount} 项已勾选${limitedLabel}`;
   els.resetChecklistBtn.disabled = checklist.size === 0;
   els.exportImageBtn.disabled = false;
   renderRightItemInfo(item);
@@ -187,15 +194,34 @@ function renderSelected() {
 }
 
 function buildTree(id, qty, depth, path, key = id, options = {}) {
+  if (!options.nodeBudget) {
+    options.nodeBudget = {
+      remaining: options.maxNodes ?? Infinity,
+      truncated: false
+    };
+  }
+
+  options.nodeBudget.remaining -= 1;
   const item = state.itemMap.get(id) ?? unknownItem(id);
   const hasRecipe = Boolean(item.recipe?.length);
   const isCollapsed = !options.ignoreCollapsed && collapsedForSelected().has(key);
   const shouldExpand = options.forceDeep || state.deep;
-  const canExpand = shouldExpand && hasRecipe && !isCollapsed && !path.includes(id);
+  const canExpand = shouldExpand && hasRecipe && !isCollapsed && !path.includes(id) && options.nodeBudget.remaining > 0;
   const output = itemOutput(item);
-  const children = canExpand
-    ? item.recipe.map((entry, index) => buildTree(entry.id, (entry.qty * qty) / output, depth + 1, [...path, id], `${key}.${index}`, options))
-    : [];
+  const children = [];
+
+  if (canExpand) {
+    item.recipe.forEach((entry, index) => {
+      if (options.nodeBudget.remaining <= 0) {
+        options.nodeBudget.truncated = true;
+        return;
+      }
+
+      children.push(buildTree(entry.id, (entry.qty * qty) / output, depth + 1, [...path, id], `${key}.${index}`, options));
+    });
+  } else if (hasRecipe && !isCollapsed && !path.includes(id) && options.nodeBudget.remaining <= 0) {
+    options.nodeBudget.truncated = true;
+  }
 
   return {
     id: `${id}-${depth}-${path.join(".")}-${Math.random().toString(36).slice(2, 7)}`,
@@ -837,7 +863,7 @@ function collapseCheckedNode(key) {
 }
 
 function checklistBranchKeys(key) {
-  const root = buildTree(state.selectedId, 1, 0, [], state.selectedId, { forceDeep: true, ignoreCollapsed: true });
+  const root = buildTree(state.selectedId, 1, 0, [], state.selectedId, { forceDeep: true, ignoreCollapsed: true, maxNodes: TREE_NODE_LIMIT });
   const target = findNodeByKey(root, key);
   if (!target) return [key];
 
