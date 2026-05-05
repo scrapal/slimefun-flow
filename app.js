@@ -610,6 +610,10 @@ function iconHtml(item, className) {
     return `<span class="${className} head-icon" style="--head-url: url('${textureUrl}')" aria-hidden="true"></span>`;
   }
 
+  if (item.localIcon) {
+    return imageHtml(item.localIcon, className);
+  }
+
   return placeholderIconHtml(item, className);
 }
 

@@ -2,9 +2,12 @@
 import json
 import re
 import shutil
+import ssl
+import sys
 import time
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from PIL import Image, ImageDraw
@@ -14,6 +17,10 @@ DATA_PATH = ROOT / "data" / "slimefun-items.json"
 OUTPUT_DIR = ROOT / "generated-icons" / "heads"
 CACHE_DIR = ROOT / "generated-icons" / "head-textures"
 TEXTURE_URL = "https://textures.minecraft.net/texture/{}"
+OFFLINE = "--offline" in sys.argv
+MAX_WORKERS = 16
+FETCH_TIMEOUT = 6
+SSL_CONTEXT = ssl._create_unverified_context()
 
 
 def main():
@@ -27,6 +34,15 @@ def main():
     generated = 0
     failed = 0
     rendered_hashes = {}
+    texture_hashes = sorted(
+        {
+            texture_hash
+            for item in all_items
+            for texture_hash in [normalize_hash(item.get("headTexture"))]
+            if texture_hash
+        }
+    )
+    texture_paths = fetch_head_textures(texture_hashes)
 
     for item in all_items:
         item.pop("headBlockIcon", None)
@@ -35,7 +51,7 @@ def main():
             continue
 
         if texture_hash not in rendered_hashes:
-            skin_path = fetch_head_texture(texture_hash)
+            skin_path = texture_paths.get(texture_hash)
             if not skin_path:
                 failed += 1
                 continue
@@ -57,19 +73,39 @@ def main():
     print(f"Generated {generated} head block icons from {len(rendered_hashes)} unique head textures. Failed {failed}.")
 
 
+def fetch_head_textures(texture_hashes):
+    if OFFLINE:
+        return {texture_hash: (CACHE_DIR / f"{texture_hash}.png") for texture_hash in texture_hashes if (CACHE_DIR / f"{texture_hash}.png").exists()}
+
+    paths = {}
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        future_map = {executor.submit(fetch_head_texture, texture_hash): texture_hash for texture_hash in texture_hashes}
+        for future in as_completed(future_map):
+            texture_hash = future_map[future]
+            try:
+                path = future.result()
+            except Exception:
+                path = None
+            if path:
+                paths[texture_hash] = path
+    return paths
+
+
 def fetch_head_texture(texture_hash):
     cache_path = CACHE_DIR / f"{texture_hash}.png"
     if cache_path.exists():
         return cache_path
+    if OFFLINE:
+        return None
 
     request = urllib.request.Request(TEXTURE_URL.format(texture_hash), headers={"User-Agent": "slimefun-flow/1.0"})
-    for attempt in range(3):
+    for attempt in range(2):
         try:
-            with urllib.request.urlopen(request, timeout=20) as response:
+            with urllib.request.urlopen(request, timeout=FETCH_TIMEOUT, context=SSL_CONTEXT) as response:
                 cache_path.write_bytes(response.read())
             return cache_path
         except (urllib.error.URLError, TimeoutError):
-            if attempt < 2:
+            if attempt < 1:
                 time.sleep(0.6 * (attempt + 1))
 
     return None

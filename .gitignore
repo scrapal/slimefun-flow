@@ -4,6 +4,7 @@
 # Local source artifacts; do not deploy or commit third-party binaries/assets
 *.jar
 *.zip
+HaimanTech2-Release-1.9.10/
 
 # Generated cache; rendered icons under generated-icons/heads are deployed.
 generated-icons/head-textures/
