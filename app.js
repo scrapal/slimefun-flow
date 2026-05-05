@@ -98,6 +98,7 @@ function renderSearchResults() {
   const sourceItems = query ? state.allItems : state.craftableItems;
   const results = sourceItems
     .filter((item) => matchesQuery(item, query))
+    .filter((item) => shouldShowInSearch(item, query))
     .sort((a, b) => searchResultScore(b) - searchResultScore(a) || a.name.localeCompare(b.name, "zh-Hans-CN"))
     .slice(0, 60);
 
@@ -132,6 +133,20 @@ function matchesQuery(item, query) {
   return [item.name, item.englishName, item.id, item.category, item.addonName]
     .filter(Boolean)
     .some((value) => normalize(value).includes(query));
+}
+
+function shouldShowInSearch(item, query) {
+  if (item.id === state.selectedId) return true;
+  if (!isLegacyMcBreedingBox(item)) return true;
+
+  const keepIds = new Set(["SWPY_19", "SWPY_BOSS"]);
+  if (keepIds.has(item.id)) return true;
+
+  return Boolean(query && normalize(item.id).includes(query));
+}
+
+function isLegacyMcBreedingBox(item) {
+  return item.addonName === "海曼科技院" && /^SWPY_(?:[1-9]|1[0-8])$/.test(item.id);
 }
 
 function searchResultScore(item) {
