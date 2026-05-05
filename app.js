@@ -217,7 +217,9 @@ function buildTree(id, qty, depth, path, key = id, options = {}) {
         return;
       }
 
-      children.push(buildTree(entry.id, (entry.qty * qty) / output, depth + 1, [...path, id], `${key}.${index}`, options));
+      const childItem = state.itemMap.get(entry.id) ?? unknownItem(entry.id);
+      const childQty = childRecipeQty(item, childItem, entry, qty, output);
+      children.push(buildTree(entry.id, childQty, depth + 1, [...path, id], `${key}.${index}`, options));
     });
   } else if (hasRecipe && !isCollapsed && !path.includes(id) && options.nodeBudget.remaining <= 0) {
     options.nodeBudget.truncated = true;
@@ -235,6 +237,29 @@ function buildTree(id, qty, depth, path, key = id, options = {}) {
     isBase: children.length === 0,
     children
   };
+}
+
+function childRecipeQty(parentItem, childItem, entry, parentQty, parentOutput) {
+  if (isSourceMachineEntry(parentItem, childItem)) return entry.qty;
+  return (entry.qty * parentQty) / parentOutput;
+}
+
+function isSourceMachineEntry(parentItem, childItem) {
+  if (parentItem.recipeType !== "特殊获取") return false;
+  if (childItem.addonName === "Minecraft") return false;
+  if (!childItem.recipe?.length) return false;
+  return isLikelyMachineSource(childItem);
+}
+
+function isLikelyMachineSource(item) {
+  const category = String(item.category ?? "");
+  const key = normalizeKeyForInfo(`${item.id ?? ""} ${item.englishName ?? ""}`);
+  const name = String(item.name ?? "");
+  return (
+    category.includes("机器") ||
+    matchesAny(key, ["MACHINE", "GENERATOR", "CONSTRUCTOR", "COMBINATOR", "MINER", "FIXER", "CHANGER", "COPIER", "MAGNETIZE"]) ||
+    /机|器|矿机|生成器|构造器|集成器|计算器|递增器|电容|收集器/.test(name)
+  );
 }
 
 function layoutTree(root) {
