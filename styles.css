@@ -257,6 +257,34 @@ h1 {
   display: none;
 }
 
+.usage-guide {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.usage-guide summary {
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.usage-guide ul {
+  display: grid;
+  gap: 7px;
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.usage-guide li::marker {
+  color: var(--accent);
+}
+
 .legal-links {
   display: flex;
   flex-wrap: wrap;
