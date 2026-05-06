@@ -321,8 +321,7 @@ function renderGraph(layout) {
       return `
         <div class="graph-node ${rootClass} ${baseClass} ${expandableClass} ${collapsedClass} ${doneClass}" style="left:${node.x}px;top:${node.y}px;width:${node.width}px;min-height:${node.height}px" data-id="${escapeHtml(node.itemId)}" data-key="${escapeHtml(node.key)}" title="${escapeHtml(title)}">
           <span class="node-checks">
-            <input class="node-check" type="checkbox" data-key="${escapeHtml(node.key)}" title="勾选这个材料和它的衍生材料" ${checklist.has(node.key) ? "checked" : ""} />
-            <button class="node-check-same" type="button" data-id="${escapeHtml(node.itemId)}" title="一键勾选/取消所有相同物品">同</button>
+            <input class="node-check" type="checkbox" data-key="${escapeHtml(node.key)}" data-id="${escapeHtml(node.itemId)}" title="勾选这个材料和它的衍生材料；按住 Shift 勾选/取消所有相同物品" ${checklist.has(node.key) ? "checked" : ""} />
           </span>
           ${iconHtml(node.item, "node-icon")}
           <span>
@@ -336,7 +335,7 @@ function renderGraph(layout) {
 
   els.nodeLayer.querySelectorAll(".graph-node").forEach((node) => {
     node.addEventListener("click", (event) => {
-      if (event.target.closest(".node-check, .node-check-same")) return;
+      if (event.target.closest(".node-check")) return;
       if (event.shiftKey && event.button === 0) {
         selectItem(node.dataset.id);
         return;
@@ -346,14 +345,16 @@ function renderGraph(layout) {
   });
 
   els.nodeLayer.querySelectorAll(".node-check").forEach((checkbox) => {
-    checkbox.addEventListener("click", (event) => event.stopPropagation());
-    checkbox.addEventListener("change", () => toggleChecklistItem(checkbox.dataset.key, checkbox.checked));
-  });
-
-  els.nodeLayer.querySelectorAll(".node-check-same").forEach((button) => {
-    button.addEventListener("click", (event) => {
+    checkbox.addEventListener("click", (event) => {
       event.stopPropagation();
-      toggleChecklistSameItem(button.dataset.id);
+      checkbox.dataset.sameItem = event.shiftKey ? "true" : "";
+    });
+    checkbox.addEventListener("change", () => {
+      if (checkbox.dataset.sameItem === "true") {
+        toggleChecklistSameItem(checkbox.dataset.id, checkbox.checked);
+      } else {
+        toggleChecklistItem(checkbox.dataset.key, checkbox.checked);
+      }
     });
   });
 
@@ -889,19 +890,18 @@ function toggleChecklistItem(key, done) {
   renderSelected();
 }
 
-function toggleChecklistSameItem(itemId) {
+function toggleChecklistSameItem(itemId, done) {
   if (!itemId) return;
 
   const checklist = currentChecklist();
   const keys = sameItemBranchKeys(itemId);
   if (keys.length === 0) return;
 
-  const done = keys.every((key) => checklist.has(key));
   if (done) {
-    keys.forEach((key) => checklist.delete(key));
-  } else {
     keys.forEach((key) => checklist.add(key));
     collapseCheckedSameItems(itemId);
+  } else {
+    keys.forEach((key) => checklist.delete(key));
   }
 
   state.checklist[checklistKey()] = [...checklist].sort();
