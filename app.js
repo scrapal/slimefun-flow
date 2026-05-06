@@ -320,7 +320,10 @@ function renderGraph(layout) {
         : `${node.item.name} ×${formatQty(node.qty)}，Shift+左键进入该材料`;
       return `
         <div class="graph-node ${rootClass} ${baseClass} ${expandableClass} ${collapsedClass} ${doneClass}" style="left:${node.x}px;top:${node.y}px;width:${node.width}px;min-height:${node.height}px" data-id="${escapeHtml(node.itemId)}" data-key="${escapeHtml(node.key)}" title="${escapeHtml(title)}">
-          <input class="node-check" type="checkbox" data-key="${escapeHtml(node.key)}" title="勾选这个材料和它的衍生材料" ${checklist.has(node.key) ? "checked" : ""} />
+          <span class="node-checks">
+            <input class="node-check" type="checkbox" data-key="${escapeHtml(node.key)}" title="勾选这个材料和它的衍生材料" ${checklist.has(node.key) ? "checked" : ""} />
+            <button class="node-check-same" type="button" data-id="${escapeHtml(node.itemId)}" title="一键勾选/取消所有相同物品">同</button>
+          </span>
           ${iconHtml(node.item, "node-icon")}
           <span>
             <span class="node-title">${escapeHtml(node.item.name)}</span>
@@ -333,7 +336,7 @@ function renderGraph(layout) {
 
   els.nodeLayer.querySelectorAll(".graph-node").forEach((node) => {
     node.addEventListener("click", (event) => {
-      if (event.target.closest(".node-check")) return;
+      if (event.target.closest(".node-check, .node-check-same")) return;
       if (event.shiftKey && event.button === 0) {
         selectItem(node.dataset.id);
         return;
@@ -345,6 +348,13 @@ function renderGraph(layout) {
   els.nodeLayer.querySelectorAll(".node-check").forEach((checkbox) => {
     checkbox.addEventListener("click", (event) => event.stopPropagation());
     checkbox.addEventListener("change", () => toggleChecklistItem(checkbox.dataset.key, checkbox.checked));
+  });
+
+  els.nodeLayer.querySelectorAll(".node-check-same").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      toggleChecklistSameItem(button.dataset.id);
+    });
   });
 
   setZoom(state.zoom);
@@ -879,12 +889,39 @@ function toggleChecklistItem(key, done) {
   renderSelected();
 }
 
+function toggleChecklistSameItem(itemId) {
+  if (!itemId) return;
+
+  const checklist = currentChecklist();
+  const keys = sameItemBranchKeys(itemId);
+  if (keys.length === 0) return;
+
+  const done = keys.every((key) => checklist.has(key));
+  if (done) {
+    keys.forEach((key) => checklist.delete(key));
+  } else {
+    keys.forEach((key) => checklist.add(key));
+    collapseCheckedSameItems(itemId);
+  }
+
+  state.checklist[checklistKey()] = [...checklist].sort();
+  saveChecklist();
+  renderSelected();
+}
+
 function collapseCheckedNode(key) {
-  const root = buildTree(state.selectedId, 1, 0, [], state.selectedId, { forceDeep: true, ignoreCollapsed: true });
+  const root = buildTree(state.selectedId, 1, 0, [], state.selectedId, { forceDeep: true, ignoreCollapsed: true, maxNodes: TREE_NODE_LIMIT });
   const target = findNodeByKey(root, key);
   if (!target?.hasRecipe) return;
 
   collapsedForSelected().add(target.key);
+}
+
+function collapseCheckedSameItems(itemId) {
+  const root = buildTree(state.selectedId, 1, 0, [], state.selectedId, { forceDeep: true, ignoreCollapsed: true, maxNodes: TREE_NODE_LIMIT });
+  collectNodesByItemId(root, itemId)
+    .filter((node) => node.hasRecipe)
+    .forEach((node) => collapsedForSelected().add(node.key));
 }
 
 function checklistBranchKeys(key) {
@@ -900,6 +937,31 @@ function checklistBranchKeys(key) {
 
   collect(target);
   return keys;
+}
+
+function sameItemBranchKeys(itemId) {
+  const root = buildTree(state.selectedId, 1, 0, [], state.selectedId, { forceDeep: true, ignoreCollapsed: true, maxNodes: TREE_NODE_LIMIT });
+  const keys = new Set();
+  collectNodesByItemId(root, itemId).forEach((node) => {
+    function collect(branch) {
+      keys.add(branch.key);
+      branch.children.forEach(collect);
+    }
+
+    collect(node);
+  });
+  return [...keys];
+}
+
+function collectNodesByItemId(node, itemId) {
+  const nodes = [];
+  function walk(current) {
+    if (current.itemId === itemId) nodes.push(current);
+    current.children.forEach(walk);
+  }
+
+  walk(node);
+  return nodes;
 }
 
 function findNodeByKey(node, key) {
