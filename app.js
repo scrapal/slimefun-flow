@@ -420,6 +420,7 @@ function itemInfoRows(item) {
       ["工具类型", toolStats.type],
       ["工具材质", toolStats.material],
       ["耐久", toolStats.durability],
+      ["附魔/能力", toolStats.enchantments],
       ["攻击伤害", toolStats.damage],
       ["攻击速度", toolStats.attackSpeed],
       ["挖掘速度", toolStats.miningSpeed],
@@ -1138,12 +1139,28 @@ function inferToolStats(item) {
     };
   }
 
+  if (parsedTool.custom) {
+    const typeStats = TOOL_TYPE_STATS[parsedTool.typeKey] ?? {};
+    return {
+      type: parsedTool.typeName,
+      material: "插件自定义",
+      durability: "未知（插件自定义）",
+      enchantments: "未知（插件自定义）",
+      damage: infoValue(typeStats.damage ? "未知（插件自定义武器）" : undefined),
+      attackSpeed: infoValue(typeStats.attackSpeed),
+      miningSpeed: infoValue(typeStats.usesMiningSpeed ? "未知（插件自定义工具）" : undefined),
+      tier: "未知（插件自定义）",
+      enchantability: "未知",
+    };
+  }
+
   const materialStats = TOOL_MATERIAL_STATS[parsedTool.materialKey];
   const typeStats = TOOL_TYPE_STATS[parsedTool.typeKey] ?? {};
   return {
     type: parsedTool.typeName,
     material: materialStats.name,
     durability: infoValue(materialStats.durability),
+    enchantments: "无/未知",
     damage: infoValue(typeStats.damage?.[parsedTool.materialKey]),
     attackSpeed: infoValue(typeStats.attackSpeed?.[parsedTool.materialKey] ?? typeStats.attackSpeed),
     miningSpeed: infoValue(typeStats.usesMiningSpeed ? materialStats.miningSpeed : undefined),
@@ -1171,11 +1188,16 @@ function inferArmorStats(item) {
 
 function parseTool(item) {
   const candidates = itemCandidates(item);
-  for (const specialKey of Object.keys(SPECIAL_TOOL_STATS)) {
-    if (candidates.some((candidate) => candidate === specialKey)) return { special: specialKey };
-  }
+  const specialKeys = Object.keys(SPECIAL_TOOL_STATS);
+  const exactSpecialKey = specialKeys.find((specialKey) => candidates.includes(specialKey));
+  if (exactSpecialKey) return { special: exactSpecialKey };
 
-  const typeEntry = Object.entries(TOOL_TYPE_NAMES).find(([typeKey]) => candidates.some((candidate) => candidate.endsWith(`_${typeKey}`) || candidate.includes(typeKey)));
+  const suffixSpecialKey = specialKeys
+    .filter((specialKey) => !specialKey.includes("_"))
+    .find((specialKey) => candidates.some((candidate) => candidate.endsWith(`_${specialKey}`)));
+  if (suffixSpecialKey) return { special: suffixSpecialKey };
+
+  const typeEntry = detectToolType(item, candidates);
   if (!typeEntry) return null;
 
   const [typeKey, typeName] = typeEntry;
@@ -1183,14 +1205,49 @@ function parseTool(item) {
   const materialKey = Object.keys(TOOL_MATERIAL_STATS).find((key) => candidates.some((candidate) => candidate.startsWith(`${key}_`) && candidate.endsWith(`_${typeKey}`)));
   const fallbackMaterialKey = Object.keys(TOOL_MATERIAL_STATS).find((key) => candidates.some((candidate) => candidate.startsWith(`${key}_`)));
   const finalMaterialKey = materialKey ?? fallbackMaterialKey;
-  if (!finalMaterialKey) return null;
 
   return {
     typeKey,
     typeName,
     materialKey: finalMaterialKey,
+    custom: !finalMaterialKey,
     inferred: item.addonName !== "Minecraft" || exactCandidate !== item.id,
   };
+}
+
+function detectToolType(item, candidates) {
+  const typeEntry = Object.entries(TOOL_TYPE_NAMES).find(([typeKey]) =>
+    candidates.some((candidate) => candidateHasToolType(candidate, typeKey))
+  );
+  if (typeEntry) return typeEntry;
+
+  if (!isLikelyCustomTool(item)) return null;
+
+  const name = String(item.name ?? "");
+  if (/剑|劍|刀|刃/.test(name)) return ["SWORD", TOOL_TYPE_NAMES.SWORD];
+  if (/镐/.test(name)) return ["PICKAXE", TOOL_TYPE_NAMES.PICKAXE];
+  if (/斧/.test(name)) return ["AXE", TOOL_TYPE_NAMES.AXE];
+  if (/锹|铲/.test(name)) return ["SHOVEL", TOOL_TYPE_NAMES.SHOVEL];
+  if (/锄/.test(name)) return ["HOE", TOOL_TYPE_NAMES.HOE];
+  return null;
+}
+
+function candidateHasToolType(candidate, typeKey) {
+  const aliases = TOOL_TYPE_ALIASES[typeKey] ?? [];
+  return [typeKey, ...aliases].some((token) => candidate.endsWith(`_${token}`) || candidate.includes(token));
+}
+
+function isLikelyCustomTool(item) {
+  const category = String(item.category ?? "");
+  const model = String(item.resourcePackModel ?? "");
+  const icon = String(item.icon ?? "");
+  return (
+    category.includes("工具") ||
+    category.includes("武器") ||
+    category.includes("装备") ||
+    /(^|\/)(tools?|weapons?|gear)(\/|$)/i.test(model) ||
+    /(sword|blade|pickaxe|axe|shovel|hoe|bow|shield)/i.test(icon)
+  );
 }
 
 function parseArmor(item) {
@@ -1218,7 +1275,7 @@ function parseArmor(item) {
 }
 
 function itemCandidates(item) {
-  return [item.id, item.icon, item.englishName]
+  return [item.id, item.icon, item.englishName, item.resourcePackModel, item.resourcePackIcon, item.localIcon]
     .filter(Boolean)
     .map((value) => normalizeKeyForInfo(value));
 }
@@ -1264,6 +1321,14 @@ const TOOL_TYPE_NAMES = {
   SWORD: "剑",
 };
 
+const TOOL_TYPE_ALIASES = {
+  PICKAXE: ["PICK"],
+  AXE: [],
+  SHOVEL: ["SPADE"],
+  HOE: [],
+  SWORD: ["BLADE", "KATANA", "SABER", "WEAPON"],
+};
+
 const TOOL_TYPE_STATS = {
   PICKAXE: {
     usesMiningSpeed: true,
@@ -1293,6 +1358,12 @@ const TOOL_TYPE_STATS = {
 };
 
 const SPECIAL_TOOL_STATS = {
+  INFINITYEXPANSION_INFINITY_BLADE: { type: "剑", material: "下界合金剑 / 无尽贪婪", durability: "无限（Unbreakable）", enchantments: "锋利 XX、抢夺 X、火焰附加 X、灵魂绑定", damage: "8 基础 + 锋利 XX（约 +10.5）", attackSpeed: 1.6, miningSpeed: "不适用", tier: "下界合金级 / 插件自定义", enchantability: 15 },
+  INFINITYEXPANSION_INFINITY_PICKAXE: { type: "镐", material: "下界合金镐 / 无尽贪婪", durability: "无限（Unbreakable）", enchantments: "效率 XL、时运 XX、灵魂绑定", damage: 6, attackSpeed: 1.2, miningSpeed: "9 基础 + 效率 XL", tier: "下界合金级 / 插件自定义", enchantability: 15 },
+  INFINITYEXPANSION_INFINITY_AXE: { type: "斧", material: "下界合金斧 / 无尽贪婪", durability: "无限（Unbreakable）", enchantments: "效率 XL、锋利 XX、火焰附加 X、灵魂绑定", damage: "10 基础 + 锋利 XX（约 +10.5）", attackSpeed: 1, miningSpeed: "9 基础 + 效率 XL", tier: "下界合金级 / 插件自定义", enchantability: 15 },
+  INFINITYEXPANSION_INFINITY_SHOVEL: { type: "锹", material: "下界合金锹 / 无尽贪婪", durability: "无限（Unbreakable）", enchantments: "效率 XL、精准采集 X、灵魂绑定", damage: 6.5, attackSpeed: 1, miningSpeed: "9 基础 + 效率 XL", tier: "下界合金级 / 插件自定义", enchantability: 15 },
+  INFINITYEXPANSION_INFINITY_BOW: { type: "弓", material: "无尽贪婪", durability: "无限（Unbreakable）", enchantments: "力量 X、火矢 X、无限 X、灵魂绑定", damage: "按蓄力与力量 X 变化", attackSpeed: "不适用", miningSpeed: "不适用", tier: "不适用", enchantability: 1 },
+  INFINITYEXPANSION_INFINITY_SHIELD: { type: "盾牌", material: "无尽贪婪", durability: "无限（Unbreakable）", enchantments: "保护 XX、荆棘 X、灵魂绑定", damage: "无", attackSpeed: "不适用", miningSpeed: "不适用", tier: "不适用", enchantability: 1 },
   BOW: { type: "弓", material: "原版", durability: 384, damage: "按拉弓时间变化", attackSpeed: "不适用", miningSpeed: "不适用", tier: "不适用", enchantability: 1 },
   CROSSBOW: { type: "弩", material: "原版", durability: 465, damage: "按弹药变化", attackSpeed: "不适用", miningSpeed: "不适用", tier: "不适用", enchantability: 1 },
   TRIDENT: { type: "三叉戟", material: "原版", durability: 250, damage: "9 近战 / 8 投掷", attackSpeed: 1.1, miningSpeed: "不适用", tier: "不适用", enchantability: 1 },
