@@ -564,6 +564,35 @@ h1 {
   font-weight: 700;
 }
 
+.info-note {
+  display: grid;
+  gap: 8px;
+  border: 1px solid #d7e8df;
+  border-radius: 8px;
+  padding: 10px;
+  background: #f4faf6;
+}
+
+.info-note-title {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.info-note ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.info-note li {
+  overflow-wrap: anywhere;
+}
+
 .recipe-grid {
   display: grid;
   gap: 8px;

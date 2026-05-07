@@ -4,6 +4,18 @@ const LOCAL_FALLBACK_ICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 const CHECKLIST_STORAGE_KEY = "slimefun-flow.checklist.v1";
 const EXPORT_MAX_PIXELS = 24_000_000;
 const TREE_NODE_LIMIT = 1200;
+const SPECIAL_ITEM_NOTES = {
+  LOGITECH_PARADOX: [
+    "该物品没有常规合成配方，因此材料树无法继续展开。",
+    "获取方式：由逻辑工艺的「虚空量子发电机」产出；「虚拟量子发电机」也可模拟虚空量子发电机行为产出悖论。",
+    "机制要点：虚空量子发电机电量处于指定区间时会清空电量并生成悖论。"
+  ],
+  FINALTECH_PHONY: [
+    "该物品没有常规九宫格配方，因此材料树无法继续展开。",
+    "获取方式：在乱序技艺的「卡操台」中使用「奇点」和「螺旋体」合成 1 个伪物。",
+    "用途提示：伪物可在制作复制卡时替代任意物品。"
+  ]
+};
 
 const state = {
   itemMap: new Map(),
@@ -373,6 +385,7 @@ function edgePath(parent, child, primary) {
 function renderRightItemInfo(item) {
   const rows = itemInfoRows(item);
   const tags = itemInfoTags(item);
+  const notes = itemAcquisitionNotes(item);
 
   els.rightItemInfo.innerHTML = `
     <div class="info-hero">
@@ -389,6 +402,14 @@ function renderRightItemInfo(item) {
         .map(([label, value]) => `<span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong>`)
         .join("")}
     </div>
+    ${notes.length ? `
+      <div class="info-note">
+        <div class="info-note-title">获取说明</div>
+        <ul>
+          ${notes.map((note) => `<li>${escapeHtml(note)}</li>`).join("")}
+        </ul>
+      </div>
+    ` : ""}
   `;
 }
 
@@ -459,8 +480,9 @@ function itemInfoTags(item) {
 
 function renderDirectRecipe(item) {
   if (!item.recipe?.length) {
+    const notes = itemAcquisitionNotes(item);
     els.directRecipe.classList.remove("recipe-slots");
-    els.directRecipe.innerHTML = `<div class="empty">基础材料没有配方</div>`;
+    els.directRecipe.innerHTML = `<div class="empty">${notes.length ? "没有常规直接配方，请查看获取说明" : "基础材料没有配方"}</div>`;
     return;
   }
 
@@ -508,6 +530,33 @@ function renderDirectRecipe(item) {
       if (state.itemMap.has(cell.dataset.id)) selectItem(cell.dataset.id);
     });
   });
+}
+
+function itemAcquisitionNotes(item) {
+  const explicitNotes = normalizeNotes(item.acquisitionNotes ?? item.notes ?? item.description);
+  if (explicitNotes.length) return explicitNotes;
+
+  const specialNotes = SPECIAL_ITEM_NOTES[item.id];
+  if (specialNotes?.length) return specialNotes;
+
+  if (item.recipeType === "特殊获取" && !item.recipe?.length) {
+    return [
+      "该物品被数据源标记为特殊获取，没有常规合成配方，因此材料树无法继续展开。",
+      "通常需要通过对应附属的机器、掉落、交互或菜单机制获得；当前数据源未收录更具体的步骤。"
+    ];
+  }
+
+  return [];
+}
+
+function normalizeNotes(value) {
+  if (Array.isArray(value)) {
+    return value.map((note) => String(note ?? "").trim()).filter(Boolean);
+  }
+  if (typeof value === "string") {
+    return value.split(/\r?\n/).map((note) => note.trim()).filter(Boolean);
+  }
+  return [];
 }
 
 function countNodes(node) {
