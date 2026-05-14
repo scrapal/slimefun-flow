@@ -1,0 +1,242 @@
+{
+  "entries": [
+    {
+      "id": "slimefun-guide",
+      "title": "Slimefun 指南",
+      "aliases": ["指南书", "slimefun guide", "sf guide", "/sf guide", "粘液科技指南"],
+      "category": "入门",
+      "summary": "游玩 Slimefun 时首先需要的物品是 Slimefun 指南，可通过 `/sf guide` 获取并右键打开。",
+      "details": [
+        "指南中会显示 Slimefun 提供的分类，以及 Slimefun 或附属插件添加的物品。",
+        "点击指南里的物品可以查看其配方。",
+        "如果刚接触 Slimefun，Wiki 建议先花时间浏览指南中的分类和物品。"
+      ],
+      "related": ["研究", "增强型工作台"],
+      "source": "Slimefun-Wiki-master/docs/Getting-Started.md"
+    },
+    {
+      "id": "research",
+      "title": "研究",
+      "aliases": ["研究", "research", "解锁", "经验等级", "locked item"],
+      "category": "入门",
+      "summary": "许多 Slimefun 物品可能处于锁定状态，需要权限或通过研究解锁后才能使用。",
+      "details": [
+        "要研究物品，在指南书中点击一个已锁定的物品。",
+        "研究会消耗经验等级，因此需要先准备足够经验。",
+        "是否启用研究取决于服务器设置。"
+      ],
+      "related": ["Slimefun 指南"],
+      "source": "Slimefun-Wiki-master/docs/Getting-Started.md"
+    },
+    {
+      "id": "multiblocks",
+      "title": "多方块结构",
+      "aliases": ["多方块", "multiblock", "multiblocks", "基础机器"],
+      "category": "合成与机器",
+      "summary": "多方块结构是建造在世界中的机器，早期基础机器大多属于这一类。",
+      "details": [
+        "可在配方左侧的类型上悬停，查看某个配方是否为多方块结构。",
+        "配方第三行代表底部方块，然后根据配方建造剩余部分。",
+        "多方块结构与普通物品合成不同，需要按结构摆放到世界中。"
+      ],
+      "related": ["增强型工作台", "基础机器"],
+      "source": "Slimefun-Wiki-master/docs/Getting-Started.md"
+    },
+    {
+      "id": "enhanced-crafting-table",
+      "title": "增强型工作台",
+      "aliases": ["增强型工作台", "enhanced crafting table", "ect", "发射器工作台"],
+      "category": "合成与机器",
+      "summary": "增强型工作台是 Slimefun 必不可少的基础机器，用来合成许多 Slimefun 物品。",
+      "details": [
+        "建造方式是在一个发射器上方放置一个工作台。",
+        "使用时需要在发射器内按正确配方摆放物品，然后右键点击工作台。",
+        "合成产物会出现在发射器中；如果旁边有物品输出箱，则会进入物品输出箱。"
+      ],
+      "related": ["Slimefun 指南", "物品输出箱"],
+      "source": "Slimefun-Wiki-master/docs/Enhanced-Crafting-Table.mdx"
+    },
+    {
+      "id": "slimefun-tick",
+      "title": "Slimefun Tick",
+      "aliases": ["粘液刻", "slimefun tick", "tick", "custom ticker delay", "custom-ticker-delay"],
+      "category": "服务器机制",
+      "summary": "Slimefun 方块以固定速率运行；默认情况下每 10 tick 执行一次 Tick 操作。",
+      "details": [
+        "Minecraft 中 20 tick = 1 秒，Wiki 中给出的默认 Slimefun Tick 间隔是 10 tick。",
+        "该值可在 `plugins/Slimefun/config.yml` 中通过 `URID.custom-ticker-delay` 设置。",
+        "增大 Tick 间隔也许可以优化服务器性能，但过大可能让玩家感觉机器运行太慢。"
+      ],
+      "related": ["货运 Tick 延迟", "服务器优化"],
+      "source": "Slimefun-Wiki-master/docs/Server-Optimizations.md"
+    },
+    {
+      "id": "cargo-ticker-delay",
+      "title": "货运 Tick 延迟",
+      "aliases": ["cargo-ticker-delay", "货运延迟", "货运tick", "货运网络延迟"],
+      "category": "服务器机制",
+      "summary": "货运网络可通过配置跳过指定数量的 tick 后再运行，用来限制货运运行频率。",
+      "details": [
+        "`networks.cargo-ticker-delay` 设置为 0 时，货运网络每 tick 都运行。",
+        "设置为 1 时，货运网络每秒运行一次；设置为 2 时，每次运行间隔 2 个 tick，以此类推。",
+        "Wiki 推荐该值为 1，并且仅在必要时增加；过大值会严重影响玩家体验。"
+      ],
+      "related": ["Slimefun Tick", "货运管理"],
+      "source": "Slimefun-Wiki-master/docs/Server-Optimizations.md"
+    },
+    {
+      "id": "electric-machines",
+      "title": "能源与电力",
+      "aliases": ["能源", "电力", "electric machines", "energy", "joules", "J", "焦耳"],
+      "category": "能源",
+      "summary": "能源与电力分类包含发电机、用电机器和传输电力的装置，Slimefun 使用焦耳（J）作为能源单位。",
+      "details": [
+        "使用发电机为机器供电前，能源网络需要一个能源调节器；没有它，能源无法在机器间传输。",
+        "电容可以储存电力，也可以像能源连接器一样扩展能源网络范围。",
+        "电力机器可以与货运管理系统搭配，实现自动化运输。"
+      ],
+      "related": ["能源调节器", "能源连接器", "电容", "货运管理"],
+      "source": "Slimefun-Wiki-master/docs/Electric-Machines.md"
+    },
+    {
+      "id": "energy-regulator",
+      "title": "能源调节器",
+      "aliases": ["能源调节器", "energy regulator", "电网核心"],
+      "category": "能源",
+      "summary": "能源调节器是能源网络的核心部分，有了它能量才能传输。",
+      "details": [
+        "能源调节器必须在发电机、机器或电容的 7 格以内，范围按直线计算，不能是对角线。",
+        "每个能源网络只能有 1 个能源调节器。",
+        "能源调节器不能储存能量；储能需要使用电容。"
+      ],
+      "related": ["能源与电力", "能源连接器", "电容"],
+      "source": "Slimefun-Wiki-master/docs/Energy-Regulator.md"
+    },
+    {
+      "id": "energy-connector",
+      "title": "能源连接器",
+      "aliases": ["能源连接器", "energy connector"],
+      "category": "能源",
+      "summary": "能源连接器可以在能源网络中传输能量，用于扩展能源网络范围，但不能储存能量。",
+      "details": [
+        "能源连接器需要在发电机、机器、电容或能源调节器的 7 格直线范围内。",
+        "它会在连接的部分之间传输能量。",
+        "如果需要储存多余能量，应使用电容。"
+      ],
+      "related": ["能源调节器", "电容"],
+      "source": "Slimefun-Wiki-master/docs/Energy-Connector.md"
+    },
+    {
+      "id": "energy-capacitors",
+      "title": "电容",
+      "aliases": ["电容", "储能电容", "capacitor", "energy capacitors"],
+      "category": "能源",
+      "summary": "电容可以在能源网络中传输并储存能量，等级越高可存储能量越多。",
+      "details": [
+        "电容必须在发电机、机器、能源连接器或能源调节器的 7 格直线范围内。",
+        "电容可扩展能源网络范围，并存储能源网络中的多余能量。",
+        "电容材质会根据其存储能量变化，可用万用表查看准确数值。"
+      ],
+      "related": ["能源与电力", "能源调节器", "能源连接器"],
+      "source": "Slimefun-Wiki-master/docs/Energy-Capacitors.mdx"
+    },
+    {
+      "id": "cargo-management",
+      "title": "货运管理",
+      "aliases": ["货运", "货运网络", "cargo", "cargo management", "cargo network"],
+      "category": "货运",
+      "summary": "货运管理是 Slimefun 的物品运输系统，可以自动在容器或机器之间运送物品。",
+      "details": [
+        "一个货运网络需要一个货运管理器，用于让物品可以被传输并提供网络信息。",
+        "输入节点和输出节点放在容器或机器旁，让物品进入或离开货运网络。",
+        "货运网络中的物品最多可在 16 个不同信道中传输，每个信道用不同颜色羊毛标记。"
+      ],
+      "related": ["货运管理器", "输入节点", "输出节点", "连接器节点"],
+      "source": "Slimefun-Wiki-master/docs/Cargo-Management.md"
+    },
+    {
+      "id": "cargo-manager",
+      "title": "货运管理器",
+      "aliases": ["货运管理器", "cargo manager"],
+      "category": "货运",
+      "summary": "货运管理器是货运管理系统的核心，它让物品可以在货运网络中传输。",
+      "details": [
+        "每个货运网络必须有一个货运管理器。",
+        "货运管理器本身不会传输物品，需要通过连接器连接输入节点与输出节点。",
+        "每个货运网络只能有一个货运管理器，可用连接器节点扩充网络范围。"
+      ],
+      "related": ["货运管理", "连接器节点", "输入节点", "输出节点"],
+      "source": "Slimefun-Wiki-master/docs/Cargo-Manager.md"
+    },
+    {
+      "id": "input-node",
+      "title": "输入节点",
+      "aliases": ["输入节点", "货运节点输入", "input node"],
+      "category": "货运",
+      "summary": "输入节点会从连接的容器或机器中提取物品，并放入货运网络。",
+      "details": [
+        "输入节点必须放置在箱子或机器上，并连接到 6 格直线范围内的货运管理器或连接器节点。",
+        "右键点击输入节点可配置白名单/黑名单、是否包含耐久、轮询模式、匹配物品名称下文字和信道等选项。",
+        "如果同一货运网络中有匹配的输出节点，输入节点会将物品送入货运网络。"
+      ],
+      "related": ["货运管理", "输出节点", "连接器节点"],
+      "source": "Slimefun-Wiki-master/docs/Input-Node.md"
+    },
+    {
+      "id": "output-node",
+      "title": "输出节点",
+      "aliases": ["输出节点", "货运节点输出", "output node"],
+      "category": "货运",
+      "summary": "输出节点会从货运网络接收物品，并送入它附着的容器或机器。",
+      "details": [
+        "输出节点会提取所有信道中的物品；如果需要过滤，应使用高级输出节点。",
+        "输出节点必须连接到 6 格直线范围内的货运管理器或连接器节点。",
+        "右键点击输出节点可以更改从哪个信道接收物品。"
+      ],
+      "related": ["货运管理", "输入节点", "高级输出节点"],
+      "source": "Slimefun-Wiki-master/docs/Output-Node.md"
+    },
+    {
+      "id": "androids",
+      "title": "可编程式机器人",
+      "aliases": ["机器人", "可编程式机器人", "android", "androids"],
+      "category": "机器人",
+      "summary": "可编程式机器人分类包含可以自动执行任务的机器人。",
+      "details": [
+        "Wiki 中列出了机器人交互接口，以及普通、矿工、农夫、樵夫、渔夫、屠夫等机器人。",
+        "普通机器人用于合成特定类型的机器人。",
+        "普通机器人只能执行移动指令，并且需要对应燃料才能工作。"
+      ],
+      "related": ["机器人交互接口"],
+      "source": "Slimefun-Wiki-master/docs/Androids.md; Slimefun-Wiki-master/docs/Normal-Androids.md"
+    },
+    {
+      "id": "sc",
+      "title": "SC 自定义粘液附属",
+      "aliases": ["SC", "SlimeCustomizer", "自定义粘液", "SC 自定义粘液附属"],
+      "category": "附属",
+      "summary": "Wiki 中的 SC 指 SlimeCustomizer 自定义粘液附属的配置文件列表。",
+      "details": [
+        "安装好自定义粘液附属后，将下载的配置文件覆盖原配置文件即可。",
+        "如果安装多个配置，需要手动合并文件内容。",
+        "Wiki 明确提示：配置文件由相关作者提供，Wiki 仅列出配置文件，不检验真实性、兼容性或可用性。"
+      ],
+      "related": ["RSC 自定义粘液附属", "附属插件"],
+      "source": "Slimefun-Wiki-master/docs/Addons.md"
+    },
+    {
+      "id": "rsc",
+      "title": "RSC 自定义粘液附属",
+      "aliases": ["RSC", "RykenSlimeCustomizer", "RSC 自定义粘液附属"],
+      "category": "附属",
+      "summary": "Wiki 中的 RSC 指 RykenSlimeCustomizer 自定义粘液附属的配置文件列表。",
+      "details": [
+        "安装好插件后，将该插件的配置文件（附属）放进 `RykenSlimeCustomizer/addons` 文件夹。",
+        "Wiki 提示该附属需要 Paper 服务端才能运行，下载时需要注意运行要求。",
+        "Wiki 明确提示：配置文件由相关作者提供，Wiki 仅列出配置文件，不检验真实性、兼容性或可用性。"
+      ],
+      "related": ["SC 自定义粘液附属", "附属插件"],
+      "source": "Slimefun-Wiki-master/docs/Addons.md"
+    }
+  ]
+}

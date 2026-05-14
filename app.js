@@ -59,7 +59,8 @@ async function init() {
     const dataset = await response.json();
     loadDataset(dataset);
     bindEvents();
-    const defaultItem = state.itemMap.has("SOLAR_GENERATOR") ? "SOLAR_GENERATOR" : state.craftableItems[0]?.id;
+    const requestedItem = new URLSearchParams(window.location.search).get("item");
+    const defaultItem = state.itemMap.has(requestedItem) ? requestedItem : state.itemMap.has("SOLAR_GENERATOR") ? "SOLAR_GENERATOR" : state.craftableItems[0]?.id;
     selectItem(defaultItem);
   } catch (error) {
     els.searchResults.innerHTML = `<div class="empty">数据加载失败，请用本地服务器打开页面</div>`;

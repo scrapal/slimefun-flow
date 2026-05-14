@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>粘液科技资料 · 粘液科技资料站</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="info-page">
+    <main class="info-shell">
+      <aside class="info-sidebar">
+        <div class="brand">
+          <a class="brand-mark" href="./index.html" aria-label="返回主站">SF</a>
+          <div>
+            <h1>粘液科技资料</h1>
+            <p>搜索机制、术语和常见问题</p>
+          </div>
+        </div>
+
+        <nav class="site-nav" aria-label="分站导航">
+          <a href="./index.html">主站搜索</a>
+          <a href="./material-tree.html">材料树</a>
+          <a class="active" href="./slimefun-info.html">粘液科技资料</a>
+        </nav>
+
+        <label class="search-box">
+          <span>搜索资料</span>
+          <input id="infoSearchInput" type="search" autocomplete="off" placeholder="例：粘液刻 / RSC / SC / 货运" />
+        </label>
+
+        <div id="infoFilters" class="filter-list" aria-label="资料分类"></div>
+      </aside>
+
+      <section class="info-workspace">
+        <header class="toolbar">
+          <div>
+            <h2>机制资料库</h2>
+            <p id="infoResultMeta">加载资料中</p>
+          </div>
+        </header>
+
+        <div id="infoResults" class="info-results"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./info.js"></script>
+  </body>
+</html>
